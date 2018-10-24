@@ -1,4 +1,4 @@
-# Summary
+# Table of contents
 
 * [책머리](README.md)
 * [헌정](dedication.md)

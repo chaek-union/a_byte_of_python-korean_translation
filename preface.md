@@ -10,19 +10,17 @@
 
 만약 여러분이 전에 프로그래밍을 해 본 경험이 있다면, 아마도 여러분은 여러분이 가장 좋아하는 언어와 파이썬이 어떻게 다른지에 대해 관심이 있을 것입니다. 저는 이 책에서 다른 언어와 파이썬과의 많은 차이점을 강조해 두었습니다. 하지만 주의하세요, 얼마 지나지 않아 여러분이 가장 좋아하는 언어는 파이썬이 될 것입니다!
 
-
 ## 공식 홈페이지
 
-이 책의 공식 홈페이지는 http://swaroopch.com/notes/python 이며 여기서 이 책을 온라인으로 읽으실 수 있고, 최신 버전의 책을 내려받을 수 있으며 [책을 구매하거나](https://www.swaroopch.com/buybook/) 피드백을 남길 수 있습니다.
+이 책의 공식 홈페이지는 [http://swaroopch.com/notes/python](http://swaroopch.com/notes/python) 이며 여기서 이 책을 온라인으로 읽으실 수 있고, 최신 버전의 책을 내려받을 수 있으며 [책을 구매하거나](https://www.swaroopch.com/buybook/) 피드백을 남길 수 있습니다.
 
 ## 생각해 볼 것들
 
 > 소프트웨어를 설계하는 데에는 두 가지 방법이 있습니다. 하나는 설계를 매우 간단하게 하여서 결함이 없도록 하는 것입니다. 또 하나는 설계를 굉장히 복잡하게 하여 눈에 띄는 결함이 없도록 하는 것입니다.
-
+>
 > There are two ways of constructing a software design: one way is to make it so simple that there are obviously no deficiencies; the other is to make it so complicated that there are no obvious deficiencies. -- C. A. R. Hoare
 
-<!-- -->
-
 > 삶에 있어 성공이라고 하는 것은 재능과 요행보다는 집중력과 참을성에 달려 있습니다.
-
+>
 > Success in life is a matter not so much of talent and opportunity as of concentration and perseverance. -- C. W. Wendte
+
