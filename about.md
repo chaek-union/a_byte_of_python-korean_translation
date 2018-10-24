@@ -1,34 +1,35 @@
-# 부록: 끝맺음
+# Appendix: Colophon {#colophon}
 
-{\#colophon} \[colophon\]
+Almost all of the software that I have used in the creation of this book are [FLOSS](./floss.md#floss).
 
-## 부록: 끝맺음
+## Birth of the Book
 
-이 책을 제작하는데 사용된 거의 모든 소프트웨어는 [FLOSS](floss.md#floss) 입니다.
+In the first draft of this book, I had used Red Hat 9.0 Linux as the foundation of my setup and in the sixth draft, I used Fedora Core 3 Linux as the basis of my setup.
 
-### 책의 탄생
+Initially, I was using KWord to write the book (as explained in the [history lesson](./revision_history.md#history-lesson)).
 
-이 책의 초판은 Red Hat 리눅스 9.0 을 기반으로 한 시스템에서 발행되었으며, 6 판부터는 Fedora Core 3 리눅스를 기반으로 한 시스템을 사용하여 발행되었습니다.
+## Teenage Years
 
-또 서문의 [History Lesson](https://github.com/byte-of-python-korean/a-byte-of-python/tree/5ededa01e8509a940d68be0d7c9dd0962287a9c5/history_lesson.md#history_lesson) 에서 언급한 것과 같이, 이 책은 KWord를 사용하여 처음으로 작성되었습니다.
+Later, I switched to DocBook XML using Kate but I found it too tedious. So, I switched to OpenOffice which was just excellent with the level of control it provided for formatting as well as the PDF generation, but it produced very sloppy HTML from the document.
 
-### 책의 십대 시절
+Finally, I discovered XEmacs and I rewrote the book from scratch in DocBook XML (again) after I decided that this format was the long term solution.
 
-이후에는 Kate를 사용하여 DocBook XML으로 문서를 편집하기 시작했지만 이것은 조금 복잡하고 어려워서 문서 포맷팅에 필요한 여러 뛰어난 기능이 제공되는 OpenOffice를 사용해 보았지만, 이것은 PDF에 비해 HTML로는 문서를 예쁘게 잘 만들어 주지 못했습니다.
+In the sixth draft, I decided to use Quanta+ to do all the editing. The standard XSL stylesheets that came with Fedora Core 3 Linux were being used. However, I had written a CSS document to give color and style to the HTML pages. I had also written a crude lexical analyzer, in Python of course, which automatically provides syntax highlighting to all the program listings.
 
-그러던 중 XEmacs라는 좋은 툴을 발견하게 되었고, 그래서 저는 DocBook XML을 사용하여 처음부터 다시 책을 작성하기로 했습니다.
+For the seventh draft, I was using [MediaWiki](http://www.mediawiki.org) as the basis of my setup. I used to edit everything online and the readers can directly read/edit/discuss within the wiki website, but I ended up spending more time fighting spam than writing.
 
-책의 6판부터는 Quanta+ 편집기를 이용하기 시작했고, 또 이 때는 Fedora Core 3 리눅스와 함께 제공되는 기본 XSL 스타일시트를 사용하였습니다. 그렇지만 이 때는 HTML 페이지에 여러 색과 스타일을 주기 위해 CSS 문서들을 작성해 주어야 했습니다. 또한 예제 프로그램의 문법 강조 기능을 위해 파이썬으로 문법 분석기를 직접 작성하여야 했습니다.
+For the eight draft, I used [Vim]({{ book.vimBookUrl }}), [Pandoc](http://johnmacfarlane.net/pandoc/README.html), and Mac OS X.
 
-책의 7판에 이르러서는 [MediaWiki](http://www.mediawiki.org)를 사용해 보았습니다. 이를 통해 문서를 온라인으로 편집할 수 있고 위키 웹 사이트를 통해 독자가 직접 내용을 읽고/편집하고/토론할 수 있게 할 수 있었지만, 저는 책을 작성하기 보다 스팸과 싸우는 데 시간을 더 많이 할애해야 했습니다.
+For the ninth draft, I switched to [AsciiDoc format](http://asciidoctor.org/docs/what-is-asciidoc/) and used [Emacs 24.3](http://www.masteringemacs.org/articles/2013/03/11/whats-new-emacs-24-3/),
+[tomorrow theme](https://github.com/chriskempson/tomorrow-theme),
+[Fira Mono font](https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/#download-primary) and [adoc-mode](https://github.com/sensorflo/adoc-mode/wiki) to write.
 
-책의 8판에서는 [Vim](http://www.swaroopch.com/notes/vim), [Pandoc](http://johnmacfarlane.net/pandoc/README.html), 그리고 Mac OS X를 이용했습니다.
+## Now
 
-### 책의 현재
+2016: I got tired of several minor rendering issues in AsciiDoctor, like the `++` in `C/C++` would disappear and it was hard to keep track of escaping such minor things. Plus, I had become reluctant to edit the text because of the complex Asciidoc format.
 
-책의 9판에 이르러, 저는 [Emacs 24.3](http://www.masteringemacs.org/articles/2013/03/11/whats-new-emacs-24-3/), [tomorrow theme](https://github.com/chriskempson/tomorrow-theme), [tomorrow theme](https://github.com/chriskempson/tomorrow-theme), [https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/\#download-primary\[Fira](https://www.mozilla.org/en-US/styleguide/products/firefox-os/typeface/#download-primary[Fira) Mono font\], [adoc-mode](https://github.com/sensorflo/adoc-mode/wiki)를 이용하여 [AsciiDoc format](http://asciidoctor.org/docs/what-is-asciidoc/)으로 책을 재작성하였습니다.
+For the tenth draft, I switched to writing in Markdown + [GitBook](https://www.gitbook.com) format, using the [Spacemacs editor](http://spacemacs.org).
 
-### 저자에 대하여
+## About the Author
 
-[http://swaroopch.com/about/](http://swaroopch.com/about/) 에 방문하세요.
-
+See {{ book.authorUrl }}
