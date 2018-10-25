@@ -216,9 +216,9 @@ r"Newlines are indicated by \n"
 >
 > 정규 표현식을 사용할 때는 항상 순 문자열을 사용하세요. 그렇지 않으면 문자열 내에 이스케이프 문자가 너무 많아져 알아볼 수 없게 될지도 모릅니다. 순 문자열을 사용하면, `'\\1'` 을 `r'\1'`로 짧게 표기가 가능합니다.
 
-## Variable
+## 변수
 
-Using just literal constants can soon become boring - we need some way of storing any information and manipulate them as well. This is where _variables_ come into the picture. Variables are exactly what the name implies - their value can vary, i.e., you can store anything using a variable. Variables are just parts of your computer's memory where you store some information. Unlike literal constants, you need some method of accessing these variables and hence you give them names.
+리터럴 상수만 사용하여 프로그램을 작성할 수는 없습니다. 뭔가 정보를 담고, 수정할 수 있는 어떤 공간이 필요할 것입니다. 즉, _변수_를 이용하는 것이 좋습니다. 변수는 이름 그대로 _변_할 수 있는 공간을 말하며, 여기에는 무엇이든 저장할 수 있습니다. 변수들은 단순히 정보를 저장할 때 사용되는 컴퓨터의 기억 장치의 한 부분을 가져다가 적당한 이름을 붙여 사용하는 것입니다. 리터럴 상수와는 달리, 변수들은 프로그램 내에서 여러 방법을 통해 변경되고 사용되기 때문에 한눈에 알아보기 쉬운 이름을 지어 줍시다.
 
 ## Identifier Naming
 
