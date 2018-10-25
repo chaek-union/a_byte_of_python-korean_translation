@@ -177,28 +177,28 @@ print('c')
 a b c
 ```
 
-### Escape Sequences
+### 이스케이프(Escape) 문자
 
-Suppose, you want to have a string which contains a single quote \(`'`\), how will you specify this string? For example, the string is `"What's your name?"`. You cannot specify `'What's your name?'` because Python will be confused as to where the string starts and ends. So, you will have to specify that this single quote does not indicate the end of the string. This can be done with the help of what is called an _escape sequence_. You specify the single quote as `\'` : notice the backslash. Now, you can specify the string as `'What\'s your name?'`.
+여러분이 작은 따옴표\(`'`\)를 포함하고 있는 문자열 하나를 정의하고 싶다고 해 봅시다. 이 경우 어떻게 이 문자열을 정의하면 될까요? 예를 들면 `"What’s your name?"` 과 같은 문자열을 정의하는 것입니다. 물론 `"What’s your name?"`이라고 하면 되겠지만, `'What's your name?'`과 같은 방식을 사용할수는 없습니다. 왜냐면 이 경우 문자열의 시작과 끝이 어디부터 어디까지인지 모호해지기 때문이죠. 따라서 우리는 문자열 안에 포함된 작은 따옴표가 문자열의 끝을 의미하는 것이 아니라는 것을 파이썬에게 알려줘야 합니다. 이것은 _이스케이프 문자_라 불리우는 것을 이용하면 해결할 수 있습니다. 사용법은 작은 따옴표 앞에 `\` 문자(enter 키 위에 있습니다)를 붙여 `\'` 와 같은 방식으로 표기하면 됩니다. 이를 이용하면, 위의 문자열은 `'What's your name?'` 과 같이 표기할 수 있습니다.
 
-Another way of specifying this specific string would be `"What's your name?"` i.e. using double quotes. Similarly, you have to use an escape sequence for using a double quote itself in a double quoted string. Also, you have to indicate the backslash itself using the escape sequence `\\`.
+위 문자열을 정의하는 또 다른 방법은 큰 따옴표를 사용하여 `"What’s your name?"` 과 같이 표기하는 것입니다. 큰 따옴표로 지정된 문자열 안에 포함된 큰 따옴표도 마찬가지로 이스케이프 문자를 이용하여 표기할 수 있습니다. 또한, 여러분이 \ 문자를 표기하고 싶을 경우에는 `\\` 라 표기하면 됩니다.
 
-What if you wanted to specify a two-line string? One way is to use a triple-quoted string as shown [previously](basics.md#triple-quotes) or you can use an escape sequence for the newline character - `\n` to indicate the start of a new line. An example is:
+한편 여러분이 두 줄짜리 문자열을 정의하고 싶을 경우 어떻게 하면 될까요? 한가지 방법은 [위에서 다루었듯이](basics.md#triple-quotes) 따옴표 세 개로 문자열을 정의하거나, 혹은 이스케이프 문자를 이용하여 줄바꿈 문자 (newline character) `\n` 을 사용하여 줄바꿈을 표현할 수 있습니다. 다음 예제를 확인하세요.
 
 ```python
 'This is the first line\nThis is the second line'
 ```
 
-Another useful escape sequence to know is the tab: `\t`. There are many more escape sequences but I have mentioned only the most useful ones here.
+또 한가지 유용한 이스케이프 문자는 `\t`로 표현되는 탭 문자입니다. 이외에도 여러가지 이스케이프 문자를 이용한 유용한 다른 표기들이 있습니만, 일단은 가장 유용한 것 몇가지를 알려 드리는 것이니 알아두세요.
 
-One thing to note is that in a string, a single backslash at the end of the line indicates that the string is continued in the next line, but no newline is added. For example:
+또 한가지 유용한 것은 문자열을 정의할 때 줄의 끝에 \ 문자를 붙여 주면, 그 다음 줄에 정의된 문자열을 끊김없이 이어 붙여 문자열을 정의하게 됩니다. 예를 들면 다음과 같습니다.
 
 ```python
 "This is the first sentence. \
 This is the second sentence."
 ```
 
-is equivalent to
+위 예제는 다음 예제와 동일합니다.
 
 ```python
 "This is the first sentence. This is the second sentence."
