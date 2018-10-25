@@ -204,17 +204,17 @@ This is the second sentence."
 "This is the first sentence. This is the second sentence."
 ```
 
-### Raw String
+### 순 문자열(Raw String)
 
-If you need to specify some strings where no special processing such as escape sequences are handled, then what you need is to specify a _raw_ string by prefixing `r` or `R` to the string. An example is:
+문자열 내에 포함된 이스케이프 문자 등을 처리하지 않고 그대로 출력하고 싶을 때, 문자열 앞에 `r` 또는 `R` 문자를 붙여 순 문자열(Raw String)임을 표기합니다. 다음 예제를 확인하세요.
 
 ```python
 r"Newlines are indicated by \n"
 ```
 
-> **Note for Regular Expression Users**
+> **정규 표현식 사용자를 위한 주석**
 >
-> Always use raw strings when dealing with regular expressions. Otherwise, a lot of backwhacking may be required. For example, backreferences can be referred to as `'\\1'` or `r'\1'`.
+> 정규 표현식을 사용할 때는 항상 순 문자열을 사용하세요. 그렇지 않으면 문자열 내에 이스케이프 문자가 너무 많아져 알아볼 수 없게 될지도 모릅니다. 순 문자열을 사용하면, `'\\1'` 을 `r'\1'`로 짧게 표기가 가능합니다.
 
 ## Variable
 
