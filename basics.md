@@ -259,16 +259,16 @@ NOTE: 프로그램을 실행할 때 [명령줄 인수(command line arguments)](m
 
 ![PyCharm command line arguments](.gitbook/assets/pycharm_command_line_arguments.png)
 
-### For other editors
+### 다른 편집기를 이용할 경우
 
-1. Open your editor of choice.
-2. Type the program code given in the example.
-3. Save it as a file with the filename mentioned.
-4. Run the interpreter with the command `python program.py` to run the program.
+1. 사용하고자 하는 편집기를 실행합니다.
+2. 예제 프로그램을 입력합니다.
+3. 적당한 파일명을 짓고 저장합니다.
+4. `python program.py`와 같이 파이썬 인터프리터를 통해 프로그램을 실행합니다.
 
-### Example: Using Variables And Literal Constants
+### 예제: 변수와 리터럴 상수 사용하기
 
-Type and run the following program:
+다음 프로그램을 입력 후 실행하세요.
 
 ```python
 # Filename : var.py
@@ -282,7 +282,7 @@ This is the second line.'''
 print(s)
 ```
 
-Output:
+실행 결과:
 
 ```text
 5
@@ -291,17 +291,17 @@ This is a multi-line string.
 This is the second line.
 ```
 
-**How It Works**
+**동작 원리**
 
-Here's how this program works. First, we assign the literal constant value `5` to the variable `i` using the assignment operator \(`=`\). This line is called a statement because it states that something should be done and in this case, we connect the variable name `i` to the value `5`. Next, we print the value of `i` using the `print` statement which, unsurprisingly, just prints the value of the variable to the screen.
+위 프로그램의 동작 원리는 다음과 같습니다. 먼저, 리터럴 상수 `5`를 변수 `i`에 할당 연산자 \(`=`\)를 이용하여 할당하였습니다. 이러한 한 줄을 명령\(statement\)이라고 부르는데, 이 경우 변수명 `i`에 값 `5`를 할당하였기 때문입니다. 다음으로, `i`에 할당된 값을 `print` 명령을 이용하여 출력합니다. 그러면 변수에 지정된 값이 화면에 나타납니다.
 
-Then we add `1` to the value stored in `i` and store it back. We then print it and expectedly, we get the value `6`.
+그리고 `i`에 할당된 값에 `1`을 더한 후 그 값을 다시 변수에 할당합니다. 이제 이 값을 출력하면, 예상대로, `6`이라는 값이 출력됨을 알 수 있습니다.
 
-Similarly, we assign the literal string to the variable `s` and then print it.
+리터럴 문자열 상수 또한 앞에서 설명한 과정과 동일한 과정을 거쳐 변수 `s`에 저장된 후 화면에 출력됩니다.
 
-> **Note for static language programmers**
+> **정적 언어 프로그래들을 위한 주석**
 >
-> Variables are used by just assigning them a value. No declaration or data type definition is needed/used.
+> 파이썬에서는 변수에 값을 할당함으로써 자동으로 해당 변수가 생성되며 곧바로 사용할 수 있습니다. 따로 변수의 자료형을 지정할 필요도 없고, 미리 변수를 선언할 필요도 없습니다.
 
 ## Logical And Physical Line
 
