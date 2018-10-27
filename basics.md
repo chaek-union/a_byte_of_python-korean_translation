@@ -303,43 +303,43 @@ This is the second line.
 >
 > 파이썬에서는 변수에 값을 할당함으로써 자동으로 해당 변수가 생성되며 곧바로 사용할 수 있습니다. 따로 변수의 자료형을 지정할 필요도 없고, 미리 변수를 선언할 필요도 없습니다.
 
-## Logical And Physical Line
+## 논리적/물리적 명령행
 
-A physical line is what you _see_ when you write the program. A logical line is what _Python sees_ as a single statement. Python implicitly assumes that each _physical line_ corresponds to a _logical line_.
+물리적 명령행이란 프로그램 코드 내에 직접 표현된 한 줄을 의미하는 반면, 논리적 명령행은 _파이썬 인터프리터 관점_에서의 한 명령 단위를 의미합니다. 파이썬은 각각의 물리적 명령행이 곧 논리적 명령행일 것이라고 내부적으로 간주하고 프로그램을 실행합니다.
 
-An example of a logical line is a statement like `print 'hello world'` - if this was on a line by itself \(as you see it in an editor\), then this also corresponds to a physical line.
+논리적 명령행이란 예를 들면 `print 'hello world'` 같은 것입니다. 만약 이것이 실제 코드 상으로도 한 줄로 표현되어 있다면 \(편집기에서 보이는 그대로를 말합니다\), 이 한 줄은 물리적 명령행이라고도 말할 수 있을 것입니다.
 
-Implicitly, Python encourages the use of a single statement per line which makes code more readable.
+일반적으로 파이썬으로 프로그래밍할 경우, 한 명령을 한 행에 적어 전체적인 코드를 파악하기 쉽게 작성하기를 권합니다.
 
-If you want to specify more than one logical line on a single physical line, then you have to explicitly specify this using a semicolon \(`;`\) which indicates the end of a logical line/statement. For example:
+만약 여러분이 한 물리적 명령행에 둘 이상의 논리적 명령행을 넣고 싶다면, 세미콜론 \(`;`\)을 이용하여 논리적 명령행의 끝을 명시적으로 파이썬 인터프리터에게 알려줄 수 있습니다. 다음 예제를 확인하세요.
 
 ```python
 i = 5
 print(i)
 ```
 
-is effectively same as
+위 예제는 다음과 같은 뜻이고
 
 ```python
 i = 5;
 print(i);
 ```
 
-which is also same as
+마찬가지로 아래와도 같은 뜻이며
 
 ```python
 i = 5; print(i);
 ```
 
-and same as
+아래와도 같습니다.
 
 ```python
 i = 5; print(i)
 ```
 
-However, I _strongly recommend_ that you stick to _writing a maximum of a single logical line on each single physical line_. The idea is that you should never use the semicolon. In fact, I have _never_ used or even seen a semicolon in a Python program.
+하지만, 저는 여러분이 한 물리적 명령행에 두 개 이상의 논리적 명령행을 사용하지 말 것을 _강력히 권합니다_. 즉, 세미콜론을 사용하지 말아 주세요. 사실, 저는 파이썬 프로그램을 작성할 때 세미콜론을 한번도 사용해 본 적이 없고, 또 다른 사람이 사용하는 것을 본 적도 없습니다.
 
-There is one kind of situation where this concept is really useful: if you have a long line of code, you can break it into multiple physical lines by using the backslash. This is referred to as _explicit line joining_:
+한 명령행이 너무 길어서 보기가 불편한 경우, 백슬래시 문자\(`\`\)를 이용하여 한 논리적 명령행을 여러 물리적 명령행으로 나눌 수 있습니다. 이를 _명시적 행간 결합_이라 부릅니다.
 
 ```python
 s = 'This is a string. \
@@ -347,26 +347,26 @@ This continues the string.'
 print(s)
 ```
 
-Output:
+실행 결과:
 
 ```text
 This is a string. This continues the string.
 ```
 
-Similarly,
+다음과 같이 쓸 수도 있습니다.
 
 ```python
 i = \
 5
 ```
 
-is the same as
+위 예제는 다음과 같습니다.
 
 ```python
 i = 5
 ```
 
-Sometimes, there is an implicit assumption where you don't need to use a backslash. This is the case where the logical line has a starting parentheses, starting square brackets or a starting curly braces but not an ending one. This is called _implicit line joining_. You can see this in action when we write programs using [list](data_structures.md#lists) in later chapters.
+가끔, 백슬래시 없이 행간을 합칠 수 있는 경우도 있습니다. 이것은 명령행의 중간에 괄호가 있을 때, 즉 대괄호나 중괄호를 열었을 경우 괄호를 닫을 때까지 백슬래시 없이도 모두 같은 명령행으로 간주됩니다. 이것은 _비명시적 행간 결합_\(_implicit line joining_\)이라고 부릅니다. 뒷장에서 [리스트](data_structures.md#lists)를 사용하여 프로그램을 작성할 때 이런 경우를 보게 될 것입니다.
 
 ## Indentation
 
