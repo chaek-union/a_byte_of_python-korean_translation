@@ -233,15 +233,16 @@ r"Newlines are indicated by \n"
 
 변수는 여러 가지 _자료형_의 값을 담을 수 있습니다. 가장 간단한 자료형의 예는 앞에서 이야기한 숫자형과 문자열입니다. 뒷장에서, [클래스](oop.md#classes)를 이용한 사용자 정의 자료형을 만드는 법 또한 배우게 될 것입니다.
 
-## Object
+## 객체
 
-Remember, Python refers to anything used in a program as an _object_. This is meant in the generic sense. Instead of saying "the _something_"', we say "the _object_".
+파이썬에서 사용되는 모든 것은 _객체_\(_object_\)입니다. _그것_\(_the something_\)라고 표현하는 대신, "_그 객체\(the object\)_" 라고 말합니다.
 
-> **Note for Object Oriented Programming users**:
+
+> **객체 지향 프로그래머들을 위한 주석**:
 >
-> Python is strongly object-oriented in the sense that everything is an object including numbers, strings and functions.
+> 파이썬은 강력한 객체 지향 언어로써 숫자, 문자, 함수 등등 모든 것을 객체로 취급합니다.
 
-We will now see how to use variables along with literal constants. Save the following example and run the program.
+이제 리터럴 상수들과 함께 변수를 사용하는 방법을 알아보도록 하겠습니다. 다음 예제를 저장한 후 실행하여 봅시다.
 
 ## How to write Python programs
 
