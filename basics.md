@@ -244,9 +244,9 @@ r"Newlines are indicated by \n"
 
 이제 리터럴 상수들과 함께 변수를 사용하는 방법을 알아보도록 하겠습니다. 다음 예제를 저장한 후 실행하여 봅시다.
 
-## How to write Python programs
+## 파이썬 프로그램 작성하기
 
-Henceforth, the standard procedure to save and run a Python program is as follows:
+이제부터, 다음과 같이 파이썬 프로그램을 저장하고 실행하도록 합시다:
 
 ### For PyCharm
 
