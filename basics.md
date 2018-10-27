@@ -220,14 +220,14 @@ r"Newlines are indicated by \n"
 
 리터럴 상수만 사용하여 프로그램을 작성할 수는 없습니다. 뭔가 정보를 담고, 수정할 수 있는 어떤 공간이 필요할 것입니다. 즉, _변수_를 이용하는 것이 좋습니다. 변수는 이름 그대로 _변_할 수 있는 공간을 말하며, 여기에는 무엇이든 저장할 수 있습니다. 변수들은 단순히 정보를 저장할 때 사용되는 컴퓨터의 기억 장치의 한 부분을 가져다가 적당한 이름을 붙여 사용하는 것입니다. 리터럴 상수와는 달리, 변수들은 프로그램 내에서 여러 방법을 통해 변경되고 사용되기 때문에 한눈에 알아보기 쉬운 이름을 지어 줍시다.
 
-## Identifier Naming
+## 식별자 이름 짓기
 
-Variables are examples of identifiers. _Identifiers_ are names given to identify _something_. There are some rules you have to follow for naming identifiers:
+변수 이름은 식별자의 한 예입니다. _식별자_란 _무언가_를 식별하기 위해 주어진 그것의 이름을 말합니다. 식별자를 짓는데는 다음과 같은 규칙이 있습니다.
 
-* The first character of the identifier must be a letter of the alphabet \(uppercase ASCII or lowercase ASCII or Unicode character\) or an underscore \(`_`\).
-* The rest of the identifier name can consist of letters \(uppercase ASCII or lowercase ASCII or Unicode character\), underscores \(`_`\) or digits \(0-9\).
-* Identifier names are case-sensitive. For example, `myname` and `myName` are _not_ the same. Note the lowercase `n` in the former and the uppercase `N` in the latter.
-* Examples of _valid_ identifier names are `i`, `name_2_3`. Examples of _invalid_ identifier names are `2things`, `this is spaced out`, `my-name` and `>a1b2_c3`.
+* 식별자의 첫 문자는 알파벳 문자 \(ASCII 대/소문자 혹은 유니코드 문자\)이거나 밑줄 \(`_`\) 이어야 합니다.
+* 나머지는 문자 \(ASCII 대/소문자 혹은 유니코드 문자\), 밑줄 \(`_`\), 또는 숫자 \(0-9\)가 될 수 있습니다.
+* 식별자는 대/소문자를 구분합니다. 예를 들어, `myname`과 `myName`은 다릅니다. 전자의 `n`은 소문자이고, 후자의 `N`은 대문자입니다.
+* 올바른 식별자 이름은 `i`, `name_2_3` 등과 같습니다. 올바르지 않은 식별자 이름은 `2things`, `this is spaced out`, `my-name`, `>a1b2_c3` 등입니다.
 
 ## Data Types
 
