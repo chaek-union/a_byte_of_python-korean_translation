@@ -368,22 +368,22 @@ i = 5
 
 가끔, 백슬래시 없이 행간을 합칠 수 있는 경우도 있습니다. 이것은 명령행의 중간에 괄호가 있을 때, 즉 대괄호나 중괄호를 열었을 경우 괄호를 닫을 때까지 백슬래시 없이도 모두 같은 명령행으로 간주됩니다. 이것은 _비명시적 행간 결합_\(_implicit line joining_\)이라고 부릅니다. 뒷장에서 [리스트](data_structures.md#lists)를 사용하여 프로그램을 작성할 때 이런 경우를 보게 될 것입니다.
 
-## Indentation
+## 들여쓰기
 
-Whitespace is important in Python. Actually, _whitespace at the beginning of the line is important_. This is called _indentation_. Leading whitespace \(spaces and tabs\) at the beginning of the logical line is used to determine the indentation level of the logical line, which in turn is used to determine the grouping of statements.
+파이썬에서 공백은 중요한 역할을 합니다. 사실, **한 행의 앞에 붙어있는 공백이 정말 중요합니다**. 이것을 _들여쓰기_라 부릅니다. 한 논리적 명령행의 앞에 붙어있는 공백 \(빈 칸 혹은 탭\)은 논리적 명령행의 들여쓰기 단계를 의미하며, 이것은 한 명령의 범위를 구분하는 데 사용됩니다.
 
-This means that statements which go together _must_ have the same indentation. Each such set of statements is called a _block_. We will see examples of how blocks are important in later chapters.
+이것은 같은 들여쓰기 단계에 있는 명령들은 *반드시* 같은 들여쓰기를 사용해야 함을 의미합니다. 이러한 같은 들여쓰기를 사용하고 있는 명령들의 집합을 **블록(block)** 이라고 부릅니다. 뒷장에서 예제를 통해 블록에 대해 다루게 될 것입니다.
 
-One thing you should remember is that wrong indentation can give rise to errors. For example:
+지금 여러분이 기억하셔야 할 것은 잘못된 들여쓰기는 오류를 일으킨다는 것입니다. 다음 예제를 봅시다.
 
 ```python
 i = 5
-# Error below! Notice a single space at the start of the line
+# 다음 행에서 오류가 발생합니다! 행 앞에 잘못된 공백이 한 칸 있습니다.
  print('Value is', i)
 print('I repeat, the value is', i)
 ```
 
-When you run this, you get the following error:
+위 예제를 실행하면 다음과 같이 오류가 발생합니다.
 
 ```text
   File "whitespace.py", line 3
@@ -392,17 +392,16 @@ When you run this, you get the following error:
 IndentationError: unexpected indent
 ```
 
-Notice that there is a single space at the beginning of the second line. The error indicated by Python tells us that the syntax of the program is invalid i.e. the program was not properly written. What this means to you is that _you cannot arbitrarily start new blocks of statements_ \(except for the default main block which you have been using all along, of course\). Cases where you can use new blocks will be detailed in later chapters such as the [control flow](control_flow.md#control_flow).
+두번째 행 앞에 공백이 한칸 있다는 점을 확인하세요. 위와 같은 오류는 파이썬이 우리에게 프로그램의 문법이 잘못되었음을, 즉 프로그램이 뭔가 잘못 작성되었다는 것을 알려 주는 것입니다. 이 오류가 의미하는 것은 여러분이 임의로 새 블록을 시작할 수 없음 을 의미합니다. 새 블록을 시작할 수 있는 경우에 대해 [흐름 제어\(control flow\)](control_flow.md#control_flow)에서 다루게 될 것입니다.
 
-> **How to indent**
+> **들여쓰기 하는 법**
 >
-> Use four spaces for indentation. This is the official Python language recommendation. Good editors will automatically do this for you. Make sure you use a consistent number of spaces for indentation, otherwise your program will not run or will have unexpected behavior.
+> 들여쓰기를 할 때에는 공백 4개를 이용하세요. 이것은 파이썬 언어에서 공식적으로 추천하는 방법입니다. 좋은 편집기들은 이 사항을 자동으로 준수합니다. 또, 들여쓰기를 할 때에는 항상 같은 개수의 공백을 사용해야 한다는 점에 유의하시기 바랍니다.
 
-> **Note to static language programmers**
+> **정적 언어 프로그래머들을 위한 주석**
 >
-> Python will always use indentation for blocks and will never use braces. Run `from __future__ import braces` to learn more.
+> 파이썬은 블록 구분을 위해 들여쓰기를 사용하며, 중괄호를 사용하지 않습니다. 파이썬에서 from `__future__ import braces` 명령을 실행하여 자세한 사항을 확인하세요.
 
-## Summary
+## 요약
 
-Now that we have gone through many nitty-gritty details, we can move on to more interesting stuff such as control flow statements. Be sure to become comfortable with what you have read in this chapter.
-
+지금까지 파이썬의 여러 기본적인 특징에 대해 배워보았습니다. 이제 흐름 제어와 같이 좀 더 재미있는 부분에 대해 배워 보도록 하겠습니다. 다음 장으로 넘어가기 전, 이 장에서 배운 내용에 대해 미리 익숙해져 두기를 바랍니다.
