@@ -248,14 +248,14 @@ r"Newlines are indicated by \n"
 
 이제부터, 다음과 같이 파이썬 프로그램을 저장하고 실행하도록 합시다:
 
-### For PyCharm
+### PyCharm을 이용할 경우
 
-1. Open [PyCharm](first_steps.md#pycharm).
-2. Create new file with the filename mentioned.
-3. Type the program code given in the example.
-4. Right-click and run the current file.
+1. [PyCharm](first_steps.md#pycharm)을 실행합니다.
+2. 적당한 파일명을 입력하고, 새 파일을 만듭니다.
+3. 예제로 주어진 프로그램 코드를 입력합니다.
+4. 현재 파일을 우클릭하고 실행(Run)을 누릅니다.
 
-NOTE: Whenever you have to provide [command line arguments](modules.md#modules), click on `Run` -&gt; `Edit Configurations` and type the arguments in the `Script parameters:` section and click the `OK` button:
+NOTE: 프로그램을 실행할 때 [명령줄 인수(command line arguments)](modules.md#modules)와 함께 실행하고 싶을 경우, 메뉴의 `Run` → `Edit Configurations`을 누르고 `Script parameters:` 섹션에 인수를 입력해 준 뒤 `OK` 버튼을 누르면 됩니다:
 
 ![PyCharm command line arguments](.gitbook/assets/pycharm_command_line_arguments.png)
 
