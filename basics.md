@@ -229,9 +229,9 @@ r"Newlines are indicated by \n"
 * 식별자는 대/소문자를 구분합니다. 예를 들어, `myname`과 `myName`은 다릅니다. 전자의 `n`은 소문자이고, 후자의 `N`은 대문자입니다.
 * 올바른 식별자 이름은 `i`, `name_2_3` 등과 같습니다. 올바르지 않은 식별자 이름은 `2things`, `this is spaced out`, `my-name`, `>a1b2_c3` 등입니다.
 
-## Data Types
+## 자료형
 
-Variables can hold values of different types called _data types_. The basic types are numbers and strings, which we have already discussed. In later chapters, we will see how to create our own types using [classes](oop.md#classes).
+변수는 여러 가지 _자료형_의 값을 담을 수 있습니다. 가장 간단한 자료형의 예는 앞에서 이야기한 숫자형과 문자열입니다. 뒷장에서, [클래스](oop.md#classes)를 이용한 사용자 정의 자료형을 만드는 법 또한 배우게 될 것입니다.
 
 ## Object
 
