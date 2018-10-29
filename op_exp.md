@@ -1,8 +1,8 @@
-# Operators and Expressions {#op-exp}
+# 연산자와 수식 {#op-exp}
 
-Most statements (logical lines) that you write will contain _expressions_. A simple example of an expression is `2 + 3`. An expression can be broken down into operators and operands.
+여러분이 앞으로 작성하게 될 모든 명령문 (논리적 명령행)은 _수식_을 포함하게 될 것입니다. 아주 간단한 수식의 한 예는 `2 + 3` 입니다. 수식은 연산자와 피연산자로 나눌 수 있습니다.
 
-_Operators_ are functionality that do something and can be represented by symbols such as `+` or by special keywords. Operators require some data to operate on and such data is called _operands_. In this case, `2` and `3` are the operands.
+_연산자_란 무언가를 계산할 때 쓰이는 한 기능을 뜻하며, `+`와 같이 기호로 나타내어지거나 또는 특별한 키워드로 나타내어집니다. 또 연산자는 계산에 사용될 데이터를 필요로 하는데, 이들을 _피연산자_라고 부릅니다. 이 경우, 피연산자는 `2`와 `3`이 됩니다.
 
 ## Operators
 
