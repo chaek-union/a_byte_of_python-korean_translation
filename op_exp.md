@@ -4,11 +4,11 @@
 
 _연산자_란 무언가를 계산할 때 쓰이는 한 기능을 뜻하며, `+`와 같이 기호로 나타내어지거나 또는 특별한 키워드로 나타내어집니다. 또 연산자는 계산에 사용될 데이터를 필요로 하는데, 이들을 _피연산자_라고 부릅니다. 이 경우, 피연산자는 `2`와 `3`이 됩니다.
 
-## Operators
+## 연산자
 
-We will briefly take a look at the operators and their usage.
+이제 연산자의 사용법에 대해 알아보도록 하겠습니다.
 
-Note that you can evaluate the expressions given in the examples using the interpreter interactively. For example, to test the expression `2 + 3`, use the interactive Python interpreter prompt:
+파이썬 인터프리터 프롬프트 상에서도 수식을 계산할 수 있습니다. 다음과 같이 파이썬 인터프리터 프롬프트 상에서 `2 + 3`이라는 수식을 입력해 봅시다.
 
 ```python
 >>> 2 + 3
@@ -18,102 +18,102 @@ Note that you can evaluate the expressions given in the examples using the inter
 >>>
 ```
 
-Here is a quick overview of the available operators:
+이제 파이썬에서 사용 가능한 연산자들의 종류에 대해 간단히 알아봅시다.
 
-- `+` (plus)
-    - Adds two objects
-    - `3 + 5` gives `8`. `'a' + 'b'` gives `'ab'`.
+- `+` (덧셈 연산자)
+    - 두 객체를 더합니다.
+    - `3 + 5` 는 `8`을 반환합니다. `'a' + 'b'`는 `'ab'`를 반환합니다.
 
-- `-` (minus)
-    - Gives the subtraction of one number from the other; if the first operand is absent it is assumed to be zero.
-    - `-5.2` gives a negative number and `50 - 24` gives `26`.
+- `-` (뺄셈 연산자)
+    - 한 숫자에서 다른 숫자를 뺍니다. 첫 번째 피연산자가 주어지지 않으면, 0으로 간주됩니다.
+    - `-5.2`는 음수를 표현합니다. `50 - 24`는 `26`을 반환합니다.
 
-- `*` (multiply)
-    - Gives the multiplication of the two numbers or returns the string repeated that many times.
-    - `2 * 3` gives `6`. `'la' * 3` gives `'lalala'`.
+- `*` (곱셈 연산자)
+    - 두 숫자의 곱 혹은 지정된 숫자만큼 반복된 문자열을 반환합니다.
+    - `2 * 3`은 `6`을 반환합니다. `'la' * 3`은 `'lalala'`를 반환합니다.
 
-- `**` (power)
-    - Returns x to the power of y
-    - `3 ** 4` gives `81` (i.e. `3 * 3 * 3 * 3`)
+- `**` (거듭제곱 연산자)
+    - x 의 y제곱을 반환합니다.
+    - `3 ** 4`는 `81`을 반환합니다 (이 값은 `3 * 3 * 3 * 3`과 같습니다).
 
-- `/` (divide)
-    - Divide x by y
-    - `13 / 3` gives `4.333333333333333`
+- `/` (나눗셈 연산자)
+    - x를 y로 나눈 몫을 반환합니다.
+    - `13 / 3`은 `4.333333333333333`를 반환합니다.
 
-- `//` (divide and floor)
-    - Divide x by y and round the answer _down_ to the nearest integer value. Note that if one of the values is a float, you'll get back a float.
-    - `13 // 3` gives `4`
-    - `-13 // 3` gives `-5`
-    - `9//1.81` gives `4.0`
+- `//` (정수 나눗셈 연산자)
+    - x를 y로 나눈 몫의 소숫점을 내림해서 가장 가까운 정수를 반환합니다. 계산식에 실수가 하나 이상 포함되면 실수로 반환됩니다.
+    - `13 // 3`은 `4`를 반환합니다.
+    - `-13 // 3`은 `-5`를 반환합니다.
+    - `9//1.81`은 `4.0`를 반환합니다.
 
-- `%` (modulo)
-    - Returns the remainder of the division
-    - `13 % 3` gives `1`. `-25.5 % 2.25` gives `1.5`.
+- `%` (나머지 연산자)
+    - x를 y로 나눈 나머지를 반환합니다.
+    - `13 % 3`은 `1`을 반환합니다. `-25.5 % 2.25`는 `1.5`를 반환합니다.
 
-- `<<` (left shift)
-    - Shifts the bits of the number to the left by the number of bits specified. (Each number is represented in memory by bits or binary digits i.e. 0 and 1)
-    - `2 << 2` gives `8`. `2` is represented by `10` in bits.
-    - Left shifting by 2 bits gives `1000` which represents the decimal `8`.
+- `<<` (왼쪽 시프트 연산자)
+    - 지정된 숫자에 대해 지정된 비트 수 만큼 오른쪽 시프트 연산합니다.(각각의 수는 메모리에서 비트나 0과 1과 같은 이진수에 해당됩니다.)
+    - `2 << 2`는 `8`을 반환합니다. `2`는 이진수 `10`으로 표현됩니다.
+    - 이것을 왼쪽으로 2비트 시프트 연산하면 이진수 `1000`이 되고, 이것을 정수로 표현하면 `8`이 됩니다.
 
-- `>>` (right shift)
-    - Shifts the bits of the number to the right by the number of bits specified.
-    - `11 >> 1` gives `5`.
-    - `11` is represented in bits by `1011` which when right shifted by 1 bit gives `101`which is the decimal `5`.
+- `>>` (오른쪽 시프트 연산자)
+    - 지정된 숫자에 대해 지정된 비트 수 만큼 오른쪽 시프트 연산합니다.
+    - `11 >> 1`은 `5`를 반환합니다.
+    - `11`은 이진수 `1011`로 표현됩니다. 이것으로 오른쪽으로 1비트 시프트 연산하면 이진수 `101`이 되고, 이것을 정수로 표현하면 `5`가 됩니다.
 
-- `&` (bit-wise AND)
-    - Bit-wise AND of the numbers
-    - `5 & 3` gives `1`.
+- `&` (비트 AND 연산자)
+    - 비트 AND 연산값을 반환합니다.
+    - `5 & 3`은 `1`을 반환합니다.
 
-- `|` (bit-wise OR)
-    - Bitwise OR of the numbers
-    - `5 | 3` gives `7`
+- `|` (비트 OR 연산자)
+    - 비트 OR 연산값을 반환합니다.
+    - `5 | 3`은 `7`을 반환합니다.
 
-- `^` (bit-wise XOR)
-    - Bitwise XOR of the numbers
-    - `5 ^ 3` gives `6`
+- `^` (비트 XOR 연산자)
+    - 비트 XOR 연산값을 반환합니다.
+    - `5 ^ 3`은 `6`을 반환합니다.
 
-- `~` (bit-wise invert)
-    - The bit-wise inversion of x is -(x+1)
-    - `~5` gives `-6`. More details at http://stackoverflow.com/a/11810203
+- `~` (비트 반전 연산자)
+    - 숫자 x의 비트 반전 연산값 `-(x+1)`을 반환합니다.
+    - `~5`는 `-6`을 반환합니다. 자세한 사항은 http://stackoverflow.com/a/11810203 을 읽어 보시기 바랍니다.
 
-- `<` (less than)
-    - Returns whether x is less than y. All comparison operators return `True` or `False`. Note the capitalization of these names.
-    - `5 < 3` gives `False` and `3 < 5` gives `True`.
-    - Comparisons can be chained arbitrarily: `3 < 5 < 7` gives `True`.
+- `<` (작음)
+    - x가 y보다 작은지 여부를 반환합니다. 모든 비교 연산자는 `True`또는 `False`을 반환합니다. 각 반환값의 첫글자는 대문자라는 점에 유의하세요.
+    - `5 < 3`는 `False`를 반환합니다. `3 < 5`는 `True`를 반환합니다.
+    - 다음과 같이 여러 숫자에 대해 한꺼번에 비교 연산을 수행할 수 있습니다. `3 < 5 < 7`은 `True`를 반환합니다.
 
-- `>` (greater than)
-    - Returns whether x is greater than y
-    - `5 > 3` returns `True`. If both operands are numbers, they are first converted to a common type. Otherwise, it always returns `False`.
+- `>` (큼)
+    - x가 y보다 큰지 여부를 반환합니다.
+    - `5 > 3`은 `True`를 반환합니다. 만약 두 피연산자가 모두 숫자라면, 같은 숫자형으로 변환된 후 크기를 비교합니다. 피연산자가 숫자형이 아닐 경우, 항상 `False`를 반환합니다.
 
-- `<=` (less than or equal to)
-    - Returns whether x is less than or equal to y
-    - `x = 3; y = 6; x <= y` returns `True`
+- `<=` (작거나 같음)
+    - x가 y보다 작거나 같은지 여부를 반환합니다.
+    - `x = 3; y = 6; x <= y`는 `True`를 반환합니다.
 
-- `>=` (greater than or equal to)
-    - Returns whether x is greater than or equal to y
-    - `x = 4; y = 3; x >= 3` returns `True`
+- `>=` (크거나 같음)
+    - x가 y보다 크거나 같은지 여부를 반환합니다.
+    - `x = 4; y = 3; x >= 3`는 `True`를 반환합니다.
 
-- `==` (equal to)
-    - Compares if the objects are equal
-    - `x = 2; y = 2; x == y` returns `True`
-    - `x = 'str'; y = 'stR'; x == y` returns `False`
-    - `x = 'str'; y = 'str'; x == y` returns `True`
+- `==` (같음)
+    - 두 객체가 같은지 여부를 반환합니다.
+    - `x = 2; y = 2; x == y`는 `True`를 반환합니다.
+    - `x = 'str'; y = 'stR'; x == y`는 `False`를 반환합니다.
+    - `x = 'str'; y = 'str'; x == y`는 `True`를 반환합니다.
 
-- `!=` (not equal to)
-    - Compares if the objects are not equal
-    - `x = 2; y = 3; x != y` returns `True`
+- `!=` (같지 않음)
+    - 두 객체가 같지 않은지 여부를 반환합니다.
+    - `x = 2; y = 3; x != y`는 `True`를 반환합니다.
 
-- `not` (boolean NOT)
-    - If x is `True`, it returns `False`. If x is `False`, it returns `True`.
-    - `x = True; not x` returns `False`.
+- `not` (불리언 NOT 연산자)
+    - x가 `True`라면, `False`를 반환합니다. x가 `False`라면, `True`를 반환합니다.
+    - `x = True; not x`는 `False`를 반환합니다.
 
-- `and` (boolean AND)
-    - `x and y` returns `False` if x is `False`, else it returns evaluation of y
-    - `x = False; y = True; x and y` returns `False` since x is False. In this case, Python will not evaluate y since it knows that the left hand side of the 'and' expression is `False` which implies that the whole expression will be `False` irrespective of the other values. This is called short-circuit evaluation.
+- `and` (불리언 AND 연산자)
+    - x가 'False'일 때 `x and y`는 `False`를 반환하고 아니면 y와의 and 연산 결과를 반환합니다.
+    - x가 `False`이기 때문에 `x = False; y = True; x and y`는 `False`를 반환합니다. `and` 연산에서 왼쪽의 값이 `False`면 전체 수식이 `False`가 되기 때문에 파이썬은 y의 값을 처리하지 않습니다. 이것을 단축 계산(short-circuit evalulation)이라고 부릅니다.
 
-- `or` (boolean OR)
-    - If x is `True`, it returns True, else it returns evaluation of y
-    - `x = True; y = False; x or y` returns `True`. Short-circuit evaluation applies here as well.
+- `or` (불리언 OR 연산자)
+    - x가 `True`이면 `True`가 반환되며, `False`이면 y와의 or 연산값을 반환합니다.
+    - `x = True; y = False; x or y`는 `True`를 반환합니다. 여기서도 단축 계산이 적용됩니다.
 
 ## Shortcut for math operation and assignment
 
