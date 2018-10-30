@@ -170,8 +170,6 @@ _같은 연산 순서_를 갖는 연산자들은 위 표에서 같은 행에 위
 
 ## 같은 연산 순서를 가질 경우
 
-Operators are usually associated from left to right. This means that operators with the same precedence are evaluated in a left to right manner. For example, `2 + 3 + 4` is evaluated as `(2 + 3) + 4`.
-
 기본적으로 연산자는 왼쪽에서 오른쪽으로 차례대로 계산됩니다. 즉, 같은 연산 순서를 가진 연산자들의 경우 왼쪽에서 오른쪽으로 순서대로 계산됨을 의미합니다. 예를 들어, `2 + 3 + 4`는 `(2 + 3) + 4`와 같이 계산됩니다.
 
 ## 수식 예제
