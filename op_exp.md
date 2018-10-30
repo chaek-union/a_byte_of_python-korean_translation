@@ -115,66 +115,68 @@ _연산자_란 무언가를 계산할 때 쓰이는 한 기능을 뜻하며, `+`
     - x가 `True`이면 `True`가 반환되며, `False`이면 y와의 or 연산값을 반환합니다.
     - `x = True; y = False; x or y`는 `True`를 반환합니다. 여기서도 단축 계산이 적용됩니다.
 
-## Shortcut for math operation and assignment
+## 연산 및 할당 연산자
 
-It is common to run a math operation on a variable and then assign the result of the operation back to the variable, hence there is a shortcut for such expressions:
+아래 예제와 같이, 변수의 값에 어떤 연산을 한 뒤 다시 그 변수에 연산값을 할당하는 경우가 자주 발생합니다.
 
 ```python
 a = 2
 a = a * 3
 ```
 
-can be written as:
+이런 경우, 아래와 같이 연산과 할당을 한번에 줄여 쓸 수 있습니다.
 
 ```python
 a = 2
 a *= 3
 ```
 
-Notice that `var = var operation expression` becomes `var operation= expression`.
+즉 `(변수) = (변수) (연산자) (수식)`이 `(변수) (연산자) = (수식)`의 형태가 됩니다.
 
-## Evaluation Order
+## 연산 순서
 
-If you had an expression such as `2 + 3 * 4`, is the addition done first or the multiplication? Our high school maths tells us that the multiplication should be done first. This means that the multiplication operator has higher precedence than the addition operator.
+`2 + 3 * 4`와 같은 수식을 계산한다고 합시다. 덧셈이 먼저일까요, 곱셈이 먼저일까요? 초등학교 시절에 이미 배우셨겠지만, 곱셈을 먼저 계산해야 합니다. 이것은 곱셈 연산이 덧셈 연산보다 연산 순서에서 우위에 있기 때문입니다.
 
-The following table gives the precedence table for Python, from the lowest precedence (least binding) to the highest precedence (most binding). This means that in a given expression, Python will first evaluate the operators and expressions lower in the table before the ones listed higher in the table.
+아래 표는 파이썬에서의 연산 순서를 나타내고 있습니다. 맨 위부터 가장 늦게 계산되는 순서대로 나열한 것입니다. 이것은 특정한 수식이 주어졌을 때, 파이썬은 이 표의 가장 아래에 위치한 연산부터 차례대로 계산하게 된다는 것을 의미합니다.
 
-The following table, taken from the [Python reference manual](http://docs.python.org/3/reference/expressions.html#operator-precedence), is provided for the sake of completeness. It is far better to use parentheses to group operators and operands appropriately in order to explicitly specify the precedence. This makes the program more readable. See [Changing the Order of Evaluation](#changing-order-of-evaluation) below for details.
+아래 표는 [파이썬 레퍼런스 매뉴얼](http://docs.python.org/3/reference/expressions.html#operator-precedence)에서 가져온 것입니다. 연산 순서를 적절히 조절하기 위해서는 괄호를 적당한 위치에 사용하는 것이 좋습니다. 또, 적절한 괄호의 사용은 프로그램을 좀 더 읽기 쉽게 해 줍니다. 아래의 [연산 순서 변경](#changing-order-of-evaluation) 항목을 통해 이에 대해 좀 더 자세히 알아보시기 바랍니다.
 
-- `lambda` : Lambda Expression
-- `if - else` : Conditional expression
-- `or` : Boolean OR
-- `and` : Boolean AND
-- `not x` : Boolean NOT
-- `in, not in, is, is not, <, <=, >, >=, !=, ==` : Comparisons, including membership tests and identity tests
-- `|` : Bitwise OR
-- `^` : Bitwise XOR
-- `&` : Bitwise AND
-- `<<, >>` : Shifts
-- `+, -` : Addition and subtraction
-- `*, /, //, %` : Multiplication, Division, Floor Division and Remainder
-- `+x, -x, ~x` : Positive, Negative, bitwise NOT
-- `**` : Exponentiation
-- `x[index], x[index:index], x(arguments...), x.attribute` : Subscription, slicing, call, attribute reference
-- `(expressions...), [expressions...], {key: value...}, {expressions...}` : Binding or tuple display, list display, dictionary display, set display
+- `lambda` : 람다 수식
+- `if - else` : 조건 수식
+- `or` : 불리언 OR
+- `and` : 불리언 AND
+- `not x` : 불리언 NOT
+- `in, not in, is, is not, <, <=, >, >=, !=, ==` : 비교 연산, 요소 연산, 관계 연산
+- `|` : 비트 OR
+- `^` : 비트 XOR
+- `&` : 비트 AND
+- `<<, >>` : 시프트 연산
+- `+, -` : 덧셈 및 뺄셈
+- `*, /, //, %` : 곱셈, 나눗셈, 나눗셈 후 내림 연산, 나머지 연산
+- `+x, -x, ~x` : 양수 표현, 음수 표현, 비트 NOT 연산
+- `**` : 거듭제곱
+- `x[index], x[index:index], x(arguments...), x.attribute` : 원소 접근, 슬라이스, 함수 호출, 속성 참조
+- `(expressions...), [expressions...], {key: value...}, {expressions...}` : 괄호 또는 튜플, 리스트, 사전, 집합
 
-The operators which we have not already come across will be explained in later chapters.
+아직 이 연산자들에 대해 모두 다루지 않았지만, 곧 다루게 될 것입니다.
 
-Operators with the _same precedence_ are listed in the same row in the above table. For example, `+` and `-` have the same precedence.
+_같은 연산 순서_를 갖는 연산자들은 위 표에서 같은 행에 위치하고 있습니다. 예를 들어, `+` 연산자와 `-` 연산자는 같은 연산 순서를 가지고 있습니다.
 
-## Changing the Order Of Evaluation {#changing-order-of-evaluation}
+## 연산 순서 변경 {#changing-order-of-evaluation}
 
-To make the expressions more readable, we can use parentheses. For example, `2 + (3 * 4)` is definitely easier to understand than `2 + 3 * 4` which requires knowledge of the operator precedences. As with everything else, the parentheses should be used reasonably (do not overdo it) and should not be redundant, as in `(2 + (3 * 4))`.
+괄호를 사용하여 수식을 좀 더 읽기 쉽게 할 수 있습니다. 예를 들어, `2 + (3 * 4)`라고 쓰면 `2 + 3 * 4`로 쓰는 것에 비해 연산자 순서를 잘 모르는 사람도 쉽게 읽을 수 있을 것입니다. 그렇지만, 괄호를 적당히 사용하는 것도 중요합니다. `(2 + (3 * 4))`와 같이 괄호를 너무 많이 사용하는 것은 피하세요.
 
-There is an additional advantage to using parentheses - it helps us to change the order of evaluation. For example, if you want addition to be evaluated before multiplication in an expression, then you can write something like `(2 + 3) * 4`.
+또 괄호를 사용하면 연산의 순서를 바꿀 수 있습니다. 예를 들어 위 수식에서 덧셈을 곱셈보다 먼저 계산하고 싶을 경우 `(2 + 3) * 4`라고 적을 수 있습니다.
 
-## Associativity
+## 같은 연산 순서를 가질 경우
 
 Operators are usually associated from left to right. This means that operators with the same precedence are evaluated in a left to right manner. For example, `2 + 3 + 4` is evaluated as `(2 + 3) + 4`.
 
-## Expressions
+기본적으로 연산자는 왼쪽에서 오른쪽으로 차례대로 계산됩니다. 즉, 같은 연산 순서를 가진 연산자들의 경우 왼쪽에서 오른쪽으로 순서대로 계산됨을 의미합니다. 예를 들어, `2 + 3 + 4`는 `(2 + 3) + 4`와 같이 계산됩니다.
 
-Example (save as `expression.py`):
+## 수식 예제
+
+예제 (`expression.py`로 저장하세요):
 
 ```python
 length = 5
@@ -185,7 +187,7 @@ print('Area is', area)
 print('Perimeter is', 2 * (length + breadth))
 ```
 
-Output:
+출력 결과:
 
 ```
 $ python expression.py
@@ -193,12 +195,12 @@ Area is 10
 Perimeter is 14
 ```
 
-**How It Works**
+**동작 원리**
 
-The length and breadth of the rectangle are stored in variables by the same name. We use these to calculate the area and perimeter of the rectangle with the help of expressions. We store the result of the expression `length * breadth` in the variable `area` and then print it using the `print` function. In the second case, we directly use the value of the expression `2 * (length + breadth)` in the print function.
+먼저 직사각형의 높이와 너비가 각각 length와 breadth라는 변수에 저장됩니다. 이제 앞서 배운 수식을 이용하여, 두 변수를 이용해 직사각형의 면적과 둘레를 계산합니다. 첫번째로 `area` 라는 변수에 `length * breadth`라는 수식의 결과가 저장되며, 이 값은 `print` 명령에 의해 화면에 출력됩니다. 두번째로는 print 명령에 곧바로 `2 * (length + breadth)`라는 수식을 직접 입력하고, 그 결과를 화면에 출력합니다.
 
-Also, notice how Python _pretty-prints_ the output. Even though we have not specified a space between `'Area is'` and the variable `area`, Python puts it for us so that we get a clean nice output and the program is much more readable this way (since we don't need to worry about spacing in the strings we use for output). This is an example of how Python makes life easy for the programmer.
+파이썬이 _얼마나 예쁘게_ 결과를 보여주는지 확인하세요. 우리가 `'Area is'`라는 문자열이나 `area`라는 변수에 공백을 지정하지 않았음에도, 파이썬이 그 둘 사이에 자동으로 공백을 넣어 줌으로 결과물이 깔끔하고 멋지게 출력될 수 있도록 해 주기 때문에 프로그램을 좀 더 읽기 쉽게 작성할 수 있습니다. 이것은 파이썬이 프로그래머의 삶을 좀 더 쉽게 만들어주는 하나의 좋은 예라고도 할 수 있겠습니다.
 
-## Summary
+## 요약
 
-We have seen how to use operators, operands and expressions - these are the basic building blocks of any program. Next, we will see how to make use of these in our programs using statements.
+지금까지 연산자, 피연산자, 수식에 대해 알아보았습니다. 이들은 여러분이 앞으로 작성할 프로그램의 기본적인 골격이 되어 줄 것입니다. 다음으로는, 여러분의 프로그램에서 명령문을 이용하여 지금까지 배운 것들을 응용하는 방법에 대해 알아보겠습니다.
