@@ -1,52 +1,56 @@
-# Control Flow {#control-flow}
+# 흐름 제어 {#control-flow}
 
-In the programs we have seen till now, there has always been a series of statements faithfully executed by Python in exact top-down order. What if you wanted to change the flow of how it works? For example, you want the program to take some decisions and do different things depending on different situations, such as printing 'Good Morning' or 'Good Evening' depending on the time of the day?
+지금까지 우리가 본 파이썬 프로그램들은 전부 맨 윗줄부터 차례대로 실행되기만 하는 것들 뿐이었습니다. 이러한 실행 흐름을 바꿀 수 있다면 어떨까요? 예를 들어, 프로그램이 현재 시간에 따라 'Good Morning' 혹은 'Good Evening’을 출력하는 결정을 내리도록 할 수 있게 하면 좋지 않을까요?
 
-As you might have guessed, this is achieved using control flow statements. There are three control flow statements in Python - `if`, `for` and `while`.
+예상하셨겠지만, 흐름 제어문을 이용하면 이러한 프로그램을 제작할 수 있습니다. 파이썬에서는 `if`, `for`, `while` 이라는 세 종류의 흐름 제어문을 사용할 수 있습니다.
 
-## The `if` statement
+## `if`문
 
-The `if` statement is used to check a condition: *if* the condition is true, we run a block of statements (called the _if-block_), *else* we process another block of statements (called the _else-block_). The *else* clause is optional.
+`if`문은 조건을 판별할 때 사용됩니다. *if*(만약) 조건이 참이라면, *if 블록의* 명령문을 실행하며 *else* (아니면) *else 블록의* 명령문을 실행합니다. 이 때 *else* 조건절은 생략이 가능합니다.
 
-Example (save as `if.py`):
+예제 (if.py 로 저장하세요):
 
 <!-- Tags expansion does not happen inside code blocks https://github.com/GitbookIO/gitbook/issues/707 -->
 <pre><code class="lang-python">{% include "./programs/if.py" %}</code></pre>
 
-Output:
+실행 결과:
 
 <pre><code>{% include "./programs/if.txt" %}</code></pre>
 
-**How It Works**
+**동작 원리**
 
 In this program, we take guesses from the user and check if it is the number that we have. We set the variable `number` to any integer we want, say `23`. Then, we take the user's guess using the `input()` function. Functions are just reusable pieces of programs. We'll read more about them in the [next chapter](./functions.md#functions).
 
-We supply a string to the built-in `input` function which prints it to the screen and waits for input from the user. Once we enter something and press kbd:[enter] key, the `input()` function returns what we entered, as a string. We then convert this string to an integer using `int` and then store it in the variable `guess`. Actually, the `int` is a class but all you need to know right now is that you can use it to convert a string to an integer (assuming the string contains a valid integer in the text).
+이 프로그램에서는, 사용자로부터 숫자를 입력받아 그 숫자가 프로그램에 지정된 숫자와 같은지 확인합니다. 먼저 `number` 변수에 원하는 숫자를 넣습니다. 여기서는 `23`입니다. 그리고, `input()` 함수를 통해 사용자로부터 입력을 받습니다. 여기서 함수란 재사용 가능한 프로그램 조각을 의미합니다. [다음 장](./functions.md#functions)에서, 함수에 대해 좀 더 자세히 배울 것입니다.
 
-Next, we compare the guess of the user with the number we have chosen. If they are equal, we print a success message. Notice that we use indentation levels to tell Python which statements belong to which block. This is why indentation is so important in Python. I hope you are sticking to the "consistent indentation" rule. Are you?
+파이썬에 내장된 `input` 함수에 문자열을 넣어 주면 화면에 이 문자열이 출력되며, 또 사용자의 입력을 기다리게 됩니다. 이제 사용자가 무엇인가를 입력하고 enter 키를 누르면, `input()` 함수는 사용자가 입력한 것을 문자열의 형태로 반환해 줍니다. 이제 `int`를 이용하여 이것을 정수형으로 변환한 뒤, 그 값을 변수 `guess`에 대입합니다. 사실 여기에서 사용된 `int`는 클래스라고 불리우는 것입니다만, 일단 여기서는 이것이 문자열을 숫자형으로 변환해 준다는 것만 기억하셔도 됩니다 (다만 이 때 사용된 문자열은 올바른 숫자를 포함하고 있어야 합니다).
+
+다음으로, 사용자가 입력한 숫자와 우리가 고른 숫자를 비교합니다. 만약 이 두 숫자가 같으면, 성공했다는 메시지를 화면에 출력합니다. 이때 들여쓰기를 이용하여 어디부터 어디까지가 이 블록에 해당하는지를 표시했다는 것을 확인하세요. 이러한 이유로 파이썬에서 들여쓰기는 굉장히 중요합니다. 앞서 말씀드렸듯이 여러분이 "일관성 있게 들여쓰는" 습관에 익숙해져 있었으면 좋겠네요. 이미 그렇게 하고 계시지요?
 
 Notice how the `if` statement contains a colon at the end - we are indicating to Python that a block of statements follows.
 
-Then, we check if the guess is less than the number, and if so, we inform the user that they must guess a little higher than that. What we have used here is the `elif` clause which actually combines two related `if else-if else` statements into one combined `if-elif-else` statement. This makes the program easier and reduces the amount of indentation required.
+또한 `if`문의 뒷부분에 콜론(`:`)이 붙어 있는 것을 확인하세요. 콜론은 그 다음 줄부터 새로운 블록이 시작된다는 것을 의미합니다.
 
-The `elif` and `else` statements must also have a colon at the end of the logical line followed by their corresponding block of statements (with proper indentation, of course)
+이제, 사용자가 입력한 숫자가 우리가 고른 숫자에 비해 작다면, 사용자에게 좀 더 큰 숫자를 입력하라고 알려 줍니다. 여기에 사용된 것은 `elif` 절인데, 이것은 두 개의 if 문을 중첩해서 사용해야 할 경우 (즉 `if else`를 쓰고 `else` 밑에 또 다시 `if else`를 써야 될 경우) 이것을 `if-elif-else`로 한번에 줄여서 쓸 수 있게 해 주는 것입니다. 즉 `elif`는 프로그래밍을 좀 더 쉽게 해 주고 더 많은 들여쓰기를 해야 하는 수고도 줄여 줍니다.
 
-You can have another `if` statement inside the if-block of an `if` statement and so on - this is called a nested `if` statement.
+`elif`와 `else`문을 사용할 경우, 논리적 명령행의 마지막에는 항상 콜론이 붙어 있어야 하며 그 다음 줄에는 다른 들여쓰기 단계로 시작되는 새로운 명령문 블록이 시작되어야 합니다.
 
-Remember that the `elif` and `else` parts are optional. A minimal valid `if` statement is:
+또한 `if`문의 if-block안에 또다른 `if`문을 넣고, 또 넣고 하는 식으로 작성할 수도 있습니다. 이 경우 이것을 중첩된 `if`문이라 부릅니다.
+
+`elif`와 `else`절은 생략이 가능합니다. 최소한의 올바른 `if`문 사용법은 다음과 같습니다.
 
 ```python
 if True:
     print('Yes, it is true')
 ```
 
-After Python has finished executing the complete `if` statement along with the associated `elif` and `else` clauses, it moves on to the next statement in the block containing the `if` statement. In this case, it is the main block (where execution of the program starts), and the next statement is the `print('Done')` statement. After this, Python sees the ends of the program and simply finishes up.
+`if` - `elif` - `else` 문의 실행이 끝나면, 파이썬은 `if`문을 담고 있는 블록의 다음 줄부터 실행을 재개합니다. 위 예제의 경우 그 블록은 최상위 블록 (프로그램이 실행된 시점의 블록)이 되며, 따라서 그 다음에 실행될 명령문은 `print('Done')`이 됩니다. 그 이후는 프로그램의 끝이므로 실행이 종료되게 됩니다.
 
-Even though this is a very simple program, I have been pointing out a lot of things that you should notice. All these are pretty straightforward (and surprisingly simple for those of you from C/C++ backgrounds). You will need to become aware of all these things initially, but after some practice you will become comfortable with them, and it will all feel 'natural' to you.
+지금 여러분이 본 것은 굉장히 간단한 프로그램이지만, 이를 통해서도 충분히 많은 것들에 대해 이야기했습니다. 하지만 이 모든 내용은 상당히 직관적입니다 (만약 여러분이 C/C++ 경험이 있다면 훨씬 더 쉽다고 느껴지기까지 할 것입니다). 지금 당장은 여러분이 이 모든 내용을 익혀야 하겠지만, 몇번 연습을 해보고 나면 아마 좀 더 편하게 받아들여질 것이며 곧 '자연스럽게' 여기게 될 것입니다.
 
-> **Note for C/C++ Programmers**
-> 
-> There is no `switch` statement in Python. You can use an `if..elif..else` statement to do the same thing (and in some cases, use a [dictionary](./data_structures.md#dictionary) to do it quickly)
+> **C/C++ 프로그래머를 위한 주석**
+>
+> 파이썬에는 `switch`문이 없습니다. 대신 `if..elif..else` 문을 이용하여야 합니다. (몇몇 상황에서는 [사전](./data_structures.md#dictionary)을 이용하는 것이 편리합니다)
 
 ## The while Statement
 
