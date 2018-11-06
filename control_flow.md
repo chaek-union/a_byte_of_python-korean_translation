@@ -9,13 +9,46 @@
 `if`문은 조건을 판별할 때 사용됩니다. *if*(만약) 조건이 참이라면, *if 블록의* 명령문을 실행하며 *else* (아니면) *else 블록의* 명령문을 실행합니다. 이 때 *else* 조건절은 생략이 가능합니다.
 
 예제 (if.py 로 저장하세요):
+```python
+number = 23
+guess = int(input('Enter an integer : '))
 
-<!-- Tags expansion does not happen inside code blocks https://github.com/GitbookIO/gitbook/issues/707 -->
-<pre><code class="lang-python">{% include "./programs/if.py" %}</code></pre>
+if guess == number:
+    # New block starts here
+    print('Congratulations, you guessed it.')
+    print('(but you do not win any prizes!)')
+    # New block ends here
+elif guess < number:
+    # Another block
+    print('No, it is a little higher than that')
+    # You can do whatever you want in a block ...
+else:
+    print('No, it is a little lower than that')
+    # you must have guessed > number to reach here
+
+print('Done')
+# This last statement is always executed,
+# after the if statement is executed.
+```
 
 실행 결과:
+```
+$ python if.py
+Enter an integer : 50
+No, it is a little lower than that
+Done
 
-<pre><code>{% include "./programs/if.txt" %}</code></pre>
+$ python if.py
+Enter an integer : 22
+No, it is a little higher than that
+Done
+
+$ python if.py
+Enter an integer : 23
+Congratulations, you guessed it.
+(but you do not win any prizes!)
+Done
+```
 
 **동작 원리**
 
