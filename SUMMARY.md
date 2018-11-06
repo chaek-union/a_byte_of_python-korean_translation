@@ -1,4 +1,4 @@
-# Table of contents
+# Summary
 
 * [책머리](README.md)
 * [헌정](dedication.md)
@@ -7,7 +7,7 @@
 * [설치](installation.md)
 * [첫걸음](first_steps.md)
 * [기초](basics.md)
-* [연산자와 수식](op_exp.md)
+* [연산자와 식](op_exp.md)
 * [흐름 제어](control_flow.md)
 * [함수](functions.md)
 * [모듈](modules.md)
