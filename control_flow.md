@@ -83,8 +83,6 @@ if True:
 
 ## while 문
 
-The `while` statement allows you to repeatedly execute a block of statements as long as a condition is true. A `while` statement is an example of what is called a *looping* statement. A `while` statement can have an optional `else` clause.
-
 `while`문은 특정 조건이 참일 경우 계속해서 블록의 명령문들을 반복하여 실행할 수 있도록 합니다. `while`문은 *반복문*의 한 예입니다. 또한 `while`문에는 `else` 절이 따라올 수 있습니다.
 
 예제 (`while.py`로 저장하세요):
@@ -171,11 +169,7 @@ The for loop is over
 
 `range()` 함수는 호출될 때 해당 범위 내의 숫자를 하나만 생성하기 때문에 전체 리스트를 만들고 싶다면 `list()`와 `range()`를 함께 사용해야 합니다. 예를 들어 `list(range(5))`는 `[0, 1, 2, 3, 4]`를 반환합니다. 리스트는 [자료구조](./data_structures.md#data-structures)에서 상세히 설명합니다.
 
-The `for` loop then iterates over this range - `for i in range(1,5)` is equivalent to `for i in [1, 2, 3, 4]` which is like assigning each number (or object) in the sequence to i, one at a time, and then executing the block of statements for each value of `i`.  In this case, we just print the value in the block of statements.
-
 위 예제의 `for` 반복문은 `range` 함수에서 반환된 리스트를 따라 반복하여 실행됩니다. 즉, `for i in range(1,5)`는 `for i in [1, 2, 3, 4]`와 같습니다. 이것은 리스트에 들어 있는 각각의 숫자 (각 숫자는 곧 객체이기도 합니다)를 한번에 하나씩 `i`에 대입하고, 이렇게 대입된 각 `i`값을 이용하여 for에 딸린 블록을 실행합니다. 이 경우, for 블록에서 하는 일은 단순히 `i`값을 화면에 출력해 주는 것입니다.
-
-Remember that the `else` part is optional. When included, it is always executed once after the `for` loop is over unless a [break](#break-statement) statement is encountered.
 
 `else` 절을 사용할 수도 있습니다. 만약 `else`가 포함된다면 [break](#break-statement) 문을 통해 `for` 반복문을 빠져나온 후 실행됩니다.
 
