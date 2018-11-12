@@ -81,31 +81,63 @@ if True:
 >
 > 파이썬에는 `switch`문이 없습니다. 대신 `if..elif..else` 문을 이용하여야 합니다. (몇몇 상황에서는 [사전](./data_structures.md#dictionary)을 이용하는 것이 편리합니다)
 
-## The while Statement
+## while 문
 
 The `while` statement allows you to repeatedly execute a block of statements as long as a condition is true. A `while` statement is an example of what is called a *looping* statement. A `while` statement can have an optional `else` clause.
 
-Example (save as `while.py`):
+`while`문은 특정 조건이 참일 경우 계속해서 블록의 명령문들을 반복하여 실행할 수 있도록 합니다. `while`문은 *반복문*의 한 예입니다. 또한 `while`문에는 `else` 절이 따라올 수 있습니다.
 
-<pre><code class="lang-python">{% include "./programs/while.py" %}</code></pre>
+예제 (`while.py`로 저장하세요):
 
-Output:
+```python
+number = 23
+running = True
 
-<pre><code>{% include "./programs/while.txt" %}</code></pre>
+while running:
+    guess = int(input('Enter an integer : '))
 
-**How It Works**
+    if guess == number:
+        print('Congratulations, you guessed it.')
+        # this causes the while loop to stop
+        running = False
+    elif guess < number:
+        print('No, it is a little higher than that.')
+    else:
+        print('No, it is a little lower than that.')
+else:
+    print('The while loop is over.')
+    # Do anything else you want to do here
 
-In this program, we are still playing the guessing game, but the advantage is that the user is allowed to keep guessing until he guesses correctly - there is no need to repeatedly run the program for each guess, as we have done in the previous section. This aptly demonstrates the use of the `while` statement.
+print('Done')
+```
 
-We move the `input` and `if` statements to inside the `while` loop and set the variable `running` to `True` before the while loop. First, we check if the variable `running` is `True` and then proceed to execute the corresponding *while-block*. After this block is executed, the condition is again checked which in this case is the `running` variable. If it is true, we execute the while-block again, else we continue to execute the optional else-block and then continue to the next statement.
+실행 결과:
+```
+$ python while.py
+Enter an integer : 50
+No, it is a little lower than that.
+Enter an integer : 22
+No, it is a little higher than that.
+Enter an integer : 23
+Congratulations, you guessed it.
+The while loop is over.
+Done
+```
 
-The `else` block is executed when the `while` loop condition becomes `False` - this may even be the first time that the condition is checked. If there is an `else` clause for a `while` loop, it is always executed unless you break out of the loop with a `break` statement.
 
-The `True` and `False` are called Boolean types and you can consider them to be equivalent to the value `1` and `0` respectively.
+**동작 원리**
 
-> **Note for C/C++ Programmers**
+이 프로그램 또한 숫자 알아맞히기 게임이지만 더 나은 점은 사용자가 답을 맞출 때까지 계속 숫자를 입력할 수 있다는 것입니다. 즉, 이전 섹션에서 작성한 프로그램처럼 다른 숫자를 입력해 보기 위해 프로그램을 또 실행시킬 필요가 없습니다. 이 예제는 `while`문의 사용법을 잘 보여줍니다.
+
+먼저 while 루프가 실행되기 전 변수 `running`이 `True`로 설정되어 있으므로, `while`문에 딸려 있는 *while 블록*이 실행되며 `raw_input`과 `if`문이 실행됩니다. 이 블록의 실행이 끝나면, `while` 문은 변수 `running`의 값을 다시 한번 확인합니다. 이 값이 참인 경우 while 블록을 다시 한번 실행하며, 거짓인 경우 else 블록을 실행한 뒤 루프를 빠져나와 다음 명령문이 실행됩니다.
+
+`else` 블록은 `while` 루프 조건이 `False`인 경우 실행됩니다. 물론 루프 조건을 처음으로 확인했을 경우에도 이 블록이 실행될 수 있습니다. `while` 루프에 `else` 절이 딸려있는 경우, `break` 명령으로 루프를 강제로 빠져나오지 않는 이상 이 블록은 항상 실행되게 됩니다.
+
+여기서 `True`와 `False`라는 값들은 불리언 형식이라고 불리우며, 각각은 숫자 `1`과 `0`으로 간주됩니다.
+
+> **C/C++ 프로그래머를 위한 주석**
 > 
-> Remember that you can have an `else` clause for the `while` loop.
+> `while` 루프에 `else` 절이 사용될 수 있음을 기억하세요.
 
 ## The `for` loop
 
