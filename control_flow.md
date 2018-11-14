@@ -181,33 +181,49 @@ The for loop is over
 > 
 > C/C++처럼 `for (int i = 0; i < 5; i)`와 같이 사용하고 싶은 경우, 파이썬에서는 단순히 `for i in range(0,5)`라고 입력하기만 하면 됩니다. 보시다시피, 파이썬의 `for` 반복문은 더 단순하며, 더 보기 좋고 오류가 발생하기도 어렵습니다.
 
-## The break Statement {#break-statement}
+## break 문 {#break-statement}
 
-The `break` statement is used to *break* out of a loop statement i.e. stop the execution of a looping statement, even if the loop condition has not become `False` or the sequence of items has not been completely iterated over.
+`break`문은 루프 문을 강제로 빠져나올 때, 즉 아직 루프 조건이 `False`가 되지 않았거나 열거형의 끝까지 루프가 도달하지 않았을 경우에 루프 문의 실행을 강제로 정지시키고 싶을 때 사용됩니다.
 
-An important note is that if you *break* out of a `for` or `while` loop, any corresponding loop `else` block is **not** executed.
+중요한 점은 만약 여러분이 `break`문을 써서 `for` 반복문이나 `while` 반복문을 빠져나왔을 경우, 반복문에 딸린 `else` 블록은 실행되지 않습니다.
 
-Example (save as `break.py`):
+예제 (`break.py`로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/break.py" %}</code></pre>
+```python
+while True:
+    s = input('Enter something : ')
+    if s == 'quit':
+        break
+    print('Length of the string is', len(s))
+print('Done')
+```
 
-Output:
+실행 결과:
+```
+$ python break.py
+Enter something : Programming is fun
+Length of the string is 18
+Enter something : When the work is done
+Length of the string is 21
+Enter something : if you wanna make your work also fun:
+Length of the string is 37
+Enter something : use Python!
+Length of the string is 11
+Enter something : quit
+Done
+```
 
-<pre><code>{% include "./programs/break.txt" %}</code></pre>
+**동작 원리**
 
-**How It Works**
+이 프로그램에서는 사용자의 입력을 반복해서 받고, 입력받은 문자열의 길이를 출력합니다. 다만 사용자가 입력한 문자열이 `'quit'`일 경우, `break`문으로 반복문을 빠져나와 프로그램을 정지하도록 특별한 조건을 넣어 주었습니다.
 
-In this program, we repeatedly take the user's input and print the length of each input each
-time. We are providing a special condition to stop the program by checking if the user input is
-`'quit'`. We stop the program by *breaking* out of the loop and reach the end of the program.
+입력받은 문자열의 길이는 내장함수 `len`을 이용하여 계산할 수 있습니다.
 
-The length of the input string can be found out using the built-in `len` function.
+`break`문은 `for` 반복문에서도 사용할 수 있습니다.
 
-Remember that the `break` statement can be used with the `for` loop as well.
+**Swaroop의 파이썬 시**
 
-**Swaroop's Poetic Python**
-
-The input I have used here is a mini poem I have written:
+예제에서 입력한 것은 이 책의 저자가 작성한 작은 시입니다.
 
 ```
 Programming is fun
