@@ -232,26 +232,44 @@ if you wanna make your work also fun:
     use Python!
 ```
 
-## The `continue` Statement {#continue-statement}
+## `continue`문 {#continue-statement}
 
-The `continue` statement is used to tell Python to skip the rest of the statements in the current loop block and to *continue* to the next iteration of the loop.
+`continue`문은 현재 실행중인 반복문의 나머지 명령을 실행하지 않고 곧바로 다음 반복(iteration)으로 넘어가도록 합니다.
 
-Example (save as `continue.py`):
+예제 (continue.py 로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/continue.py" %}</code></pre>
+```python
+while True:
+    s = input('Enter something : ')
+    if s == 'quit':
+        break
+    if len(s) < 3:
+        print('Too small')
+        continue
+    print('Input is of sufficient length')
+    # Do other kinds of processing here...
+```
 
-Output:
+실행 결과:
+```
+$ python continue.py
+Enter something : a
+Too small
+Enter something : 12
+Too small
+Enter something : abc
+Input is of sufficient length
+Enter something : quit
+```
 
-<pre><code>{% include "./programs/continue.txt" %}</code></pre>
+**동작 원리**
 
-**How It Works**
+이 프로그램에서는 사용자로부터 입력을 받습니다만, 입력받은 문자열의 길이가 적어도 3 이상인 경우에만 문자열을 처리합니다. 즉, 내장함수 `len`을 통해 입력받은 문자열의 길이를 알아낸 후 그 길이가 3보다 작으면, `continue`문을 이용하여 그 이하의 명령문을 실행하지 않고 다음 루프로 넘어가도록 합니다. 입력받은 문자열의 길이가 3 이상일 경우에만 그 이하의 명령문이 실행되고, 지정된 작업이 실행됩니다.
 
-In this program, we accept input from the user, but we process the input string only if it is at least 3 characters long. So, we use the built-in `len` function to get the length and if the length is less than 3, we skip the rest of the statements in the block by using the `continue` statement. Otherwise, the rest of the statements in the loop are executed, doing any kind of processing we want to do here.
+`continue`문은 `for` 반복문에서도 사용할 수 있습니다.
 
-Note that the `continue` statement works with the `for` loop as well.
+## 요약
 
-## Summary
+이 장에서는 `if`, `while`, `for` 세 종류의 흐름 제어문에 대해 배워 보았습니다. 또한 그와 같이 이용할 수 있는 `break`문과 `continue`문에 대해서도 배웠습니다. 이 명령문들은 파이썬에서 가장 많이 사용되기 때문에 익숙해질 필요가 있습니다.
 
-We have seen how to use the three control flow statements - `if`, `while` and `for` along with their associated `break` and `continue` statements. These are some of the most commonly used parts of Python and hence, becoming comfortable with them is essential.
-
-Next, we will see how to create and use functions.
+다음으로, 함수를 만들고 사용하는 방법에 대해 배워 보겠습니다.
