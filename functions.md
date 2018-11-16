@@ -1,24 +1,36 @@
-# Functions
+# 함수
 
-Functions are reusable pieces of programs. They allow you to give a name to a block of statements, allowing you to run that block using the specified name anywhere in your program and any number of times. This is known as *calling* the function. We have already used many built-in functions such as `len` and `range`.
+함수는 재사용 가능한 프로그램의 조각을 말합니다. 이것은 특정 블록의 명령어 덩어리를 묶어 이름을 짓고, 그 이름을 프로그램 어디에서건 사용함으로써 그 블록에 포함된 명령어들을 몇번이고 다시 실행할 수 있게 하는 것입니다. 이를 보고 함수를 **호출한다**라고 합니다. 사실 우리는 이미 앞에서 `len`이나 `range`와 같은 많은 내장 함수들을 사용해 왔습니다.
 
-The function concept is probably *the* most important building block of any non-trivial software (in any programming language), so we will explore various aspects of functions in this chapter.
+이러한 함수라는 것은 프로그램을 작성할 때 아마도 가장 중요한 단위가 될 것입니다 (어떤 프로그래밍 언어에서라도). 따라서 이 챕터에서는 함수라는 것을 다양한 관점에서 살펴보도록 하겠습니다.
 
-Functions are defined using the `def` keyword. After this keyword comes an *identifier* name for the function, followed by a pair of parentheses which may enclose some names of variables, and by the final colon that ends the line. Next follows the block of statements that are part of this function. An example will show that this is actually very simple:
+함수는 `def` 키워드를 통해 정의됩니다. `def` 뒤에는 함수의 식별자 이름을 입력하고, 괄호로 감싸여진 함수에서 사용될 인자(arguments)의 목록을 입력하며 마지막으로 콜론을 입력하면 함수의 정의가 끝납니다. 새로운 블록이 시작되는 다음 줄부터는 이 함수에서 사용될 명령어들을 입력해 줍니다. 복잡해 보이지만, 아래 예제를 통해 함수를 정의하는 것이 얼마나 간단한지 알아봅시다.
 
-Example (save as `function1.py`):
+예제 (`function1.py`로 저장합니다):
 
-<pre><code class="lang-python">{% include "./programs/function1.py" %}</code></pre>
+```python
+def say_hello():
+    # block belonging to the function
+    print('hello world')
+# End of function
 
-Output:
+say_hello()  # call the function
+say_hello()  # call the function again
+```
 
-<pre><code>{% include "./programs/function1.txt" %}</code></pre>
+실행 결과:
 
-**How It Works**
+```
+$ python function1.py
+hello world
+hello world
+```
 
-We define a function called `say_hello` using the syntax as explained above. This function takes no parameters and hence there are no variables declared in the parentheses. Parameters to functions are just input to the function so that we can pass in different values to it and get back corresponding results.
+**동작 원리**
 
-Notice that we can call the same function twice which means we do not have to write the same code again.
+여기에서는 위에서 설명한 문법을 이용하여 `say_hello`라는 함수를 정의하였습니다. 이 함수는 어떤 인자도 넘겨받지 않으므로, 괄호 내에 매개 변수를 정의하지 않습니다. 함수의 인수란 함수로 넘겨지는 입력값들을 말하며, 함수는 이 값을 처리하여 결과를 넘겨줍니다.
+
+함수를 두 번 호출하는 것은 같은 코드를 두 번 작성하는 것과 같은 효과를 가진다는 것을 알아두세요.
 
 ## Function Parameters
 
