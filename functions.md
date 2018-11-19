@@ -32,51 +32,81 @@ hello world
 
 함수를 두 번 호출하는 것은 같은 코드를 두 번 작성하는 것과 같은 효과를 가진다는 것을 알아두세요.
 
-## Function Parameters
+## 함수와 매개 변수
 
-A function can take parameters, which are values you supply to the function so that the function
-can *do* something utilising those values. These parameters are just like variables except that the
-values of these variables are defined when we call the function and are already assigned values
-when the function runs.
+함수를 정의할 때 매개 변수를 지정할 수 있습니다. 매개 변수란 함수로 넘겨지는 값들의 이름을 말하며, 함수는 이 값들을 이용해 무언가를 할 수 있습니다. 매개 변수는 변수와 거의 같이 취급되지만, 매개 변수의 값들은 함수가 호출되어질때 넘겨받은 값들로 채워지며 함수가 실행되는 시점에서는 이미 할당이 완료되어 있다는 점이 다릅니다.
 
-Parameters are specified within the pair of parentheses in the function definition, separated by
-commas. When we call the function, we supply the values in the same way.  Note the terminology
-used - the names given in the function definition are called *parameters* whereas the values you
-supply in the function call are called *arguments*.
+매개 변수는 함수를 정의할 때 괄호 안에 쉼표로 구분하여 지정합니다. 함수를 호출할 때에는, 동일한 방법으로 함수에 값을 넘겨 줍니다. 이 때 함수를 정의할 때 주어진 이름을 **매개변수**라 부르고, 함수에 넘겨준 값들을 **인자**라 부릅니다.
 
-Example (save as `function_param.py`):
+예제 (function_param.py 로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/function_param.py" %}</code></pre>
+```python
+def print_max(a, b):
+    if a > b:
+        print(a, 'is maximum')
+    elif a == b:
+        print(a, 'is equal to', b)
+    else:
+        print(b, 'is maximum')
 
-Output:
+# directly pass literal values
+print_max(3, 4)
 
-<pre><code>{% include "./programs/function_param.txt" %}</code></pre>
+x = 5
+y = 7
 
-**How It Works**
+# pass variables as arguments
+print_max(x, y)
+```
 
-Here, we define a function called `print_max` that uses two parameters called `a` and `b`.  We find out the greater number using a simple `if..else` statement and then print the bigger number.
+실행 결과:
 
-The first time we call the function `print_max`, we directly supply the numbers as arguments. In the second case, we call the function with variables as arguments. `print_max(x, y)` causes the value of argument `x` to be assigned to parameter `a` and the value of argument `y` to be assigned to parameter `b`. The `print_max` function works the same way in both cases.
+```
+$ python function_param.py
+4 is maximum
+7 is maximum
+```
 
-## Local Variables
+**동작 원리**
 
-When you declare variables inside a function definition, they are not related in any way to other variables with the same names used outside the function - i.e. variable names are *local* to the function. This is called the *scope* of the variable. All variables have the scope of the block they are declared in starting from the point of definition of the name.
+여기서는 두 매개 변수 `a`와 `b`를 사용하는 `print_max`라는 함수를 정의합니다. 그리고 간단한 `if..else`문을 이용하여 크기를 비교하고 둘 중에 더 큰 값을 출력합니다.
 
-Example (save as `function_local.py`):
+`print_max` 함수를 처음 호출할 때에는 값을 직접 인자로 입력하여 넘겨주었습니다. 반면 두 번째 호출시에는 변수를 인자로 입력하여 주었습니다. 이것은 `print_max(x, y)`는 변수 `x`에 지정된 값을 변수 `a`에 입력해 주고 변수 `y`의 값을 변수 `b`에 입력해 주는 것을 의미합니다. 따라서 이 함수는 두 경우 모두 동일하게 동작하게 됩니다.
 
-<pre><code class="lang-python">{% include "./programs/function_local.py" %}</code></pre>
+## 지역 변수
 
-Output:
+여러분이 정의한 함수 안에서 변수를 선언하고 사용할 경우, 함수 밖에 있는 같은 이름의 변수들과 함수 안에 있는 변수들과는 서로 연관이 없습니다. 이러한 변수들을 함수의 **지역(local)변수**라고 하며, 그 범위를 변수의 **스코프(scope)**라고 부릅니다. 모든 변수들은 변수가 정의되는 시점에서의 블록을 스코프로 가지게 됩니다.
 
-<pre><code>{% include "./programs/function_local.txt" %}</code></pre>
+예제 (function_local.py 로 저장하세요):
 
-**How It Works**
+```python
+x = 50
 
-The first time that we print the *value* of the name *x* with the first line in the function's body, Python uses the value of the parameter declared in the main block, above the function definition.
+def func(x):
+    print('x is', x)
+    x = 2
+    print('Changed local x to', x)
 
-Next, we assign the value `2` to `x`. The name `x` is local to our function.  So, when we change the value of `x` in the function, the `x` defined in the main block remains unaffected.
+func(x)
+print('x is still', x)
+```
 
-With the last `print` statement, we display the value of `x` as defined in the main block, thereby confirming that it is actually unaffected by the local assignment within the previously called function.
+실행 결과:
+
+```
+$ python function_local.py
+x is 50
+Changed local x to 2
+x is still 50
+```
+
+**동작원리**
+
+먼저 함수의 첫번째 줄에서 x 라는 이름을 가진 변수에 담긴 *값*을 출력합니다. 이 때 함수 정의 위에 정의된 변수의 값을 함수의 매개 변수 *x*로 넘겨받은 값이 출력됩니다.
+
+다음으로, `x`에 값 `2`를 대입합니다. 그러나 `x`는 함수의 지역 변수이므로, 함수 안에서 `x`의 값이 대입된 값으로 변하는 반면 메인 블록의 `x`는 변하지 않고 그대로 남아 있습니다.
+
+프로그램에서 사용된 마지막 `print` 문을 통해 메인 블록의 `x`값을 출력해 보면, 그 이전에 호출된 함수 안에서 시행된 지역 변수값의 변화가 적용되지 않았음을 확인할 수 있습니다.
 
 ## The `global` statement {#global-statement}
 
