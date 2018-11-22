@@ -108,25 +108,44 @@ x is still 50
 
 프로그램에서 사용된 마지막 `print` 문을 통해 메인 블록의 `x`값을 출력해 보면, 그 이전에 호출된 함수 안에서 시행된 지역 변수값의 변화가 적용되지 않았음을 확인할 수 있습니다.
 
-## The `global` statement {#global-statement}
+## `global`문 {#global-statement}
 
-If you want to assign a value to a name defined at the top level of the program (i.e. not inside any kind of scope such as functions or classes), then you have to tell Python that the name is not local, but it is *global*. We do this using the `global` statement. It is impossible to assign a value to a variable defined outside a function without the `global` statement.
+함수나 클래스 내부에서 상위 블록에서 선언된 변수의 값을 변경하고 싶을 경우, 파이썬에게 이 변수를 앞으로 지역 변수가 아닌 `전역(global)` 변수로 사용할 것임을 알려 주어야 합니다. 이때 `global`문을 이용합니다. `global`문을 사용하지 않으면, 함수 외부에서 선언된 변수의 값을 함수 내부에서 변경할 수 없습니다.
 
-You can use the values of such variables defined outside the function (assuming there is no variable with the same name within the function). However, this is not encouraged and should be avoided since it becomes unclear to the reader of the program as to where that variable's definition is. Using the `global` statement makes it amply clear that the variable is defined in an outermost block.
+함수 안에서 동일한 이름으로 선언된 변수가 없을 경우, 함수 밖의 변수값을 함수 안에서 읽고 변경할 수도 있습니다. 그러나, 이것은 프로그램을 읽을 때 변수가 어디서 어떻게 선언되었는지 파악하기 힘들게 만들기 때문에 추천할만한 방법이 아니며, 가능한 이런 경우를 피하시기 바랍니다. `global`문을 사용하면 그 블록의 밖에서 그 변수가 선언되어 있음을 알려 주므로 좀 더 프로그램이 좀 더 명확해집니다.
 
-Example (save as `function_global.py`):
+예제 (function_global.py 로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/function_global.py" %}</code></pre>
+```python
+x = 50
 
-Output:
 
-<pre><code>{% include "./programs/function_global.txt" %}</code></pre>
+def func():
+    global x
 
-**How It Works**
+    print('x is', x)
+    x = 2
+    print('Changed global x to', x)
 
-The `global` statement is used to declare that `x` is a global variable - hence, when we assign a value to `x` inside the function, that change is reflected when we use the value of `x` in the main block.
 
-You can specify more than one global variable using the same `global` statement e.g. `global x, y, z`.
+func()
+print('Value of x is', x)
+```
+
+실행 결과:
+
+```
+$ python function_global.py
+x is 50
+Changed global x to 2
+Value of x is 2
+```
+
+**동작 원리**
+
+`global`문을 통해 `x`가 전역 변수임을 파이썬에게 알려 줍니다. 따라서, 이후로 `x`에 값을 대입하면 메인 블록의 `x`값 또한 변경됩니다.
+
+하나의 `global`문으로 여러 개의 전역 변수를 동시에 지정해 줄 수도 있습니다. `global x, y, z`와 같이 하면 됩니다.
 
 ## Default Argument Values {#default-arguments}
 
