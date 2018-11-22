@@ -147,34 +147,41 @@ Value of x is 2
 
 하나의 `global`문으로 여러 개의 전역 변수를 동시에 지정해 줄 수도 있습니다. `global x, y, z`와 같이 하면 됩니다.
 
-## Default Argument Values {#default-arguments}
+## 기본 인수값 {#default-arguments}
 
-For some functions, you may want to make some parameters *optional* and use default values in case the user does not want to provide values for them. This is done with the help of default argument values. You can specify default argument values for parameters by appending to the parameter name in the function definition the assignment operator (`=`) followed by the default value.
+어떤 특별한 경우, 함수를 호출할 때 인수를 **선택적으로** 넘겨주게 하여 사용자가 값을 넘겨주지 않으면 자동으로 기본값을 사용하도록 하는 것이 편할 때가 있습니다. 이런 경우, 기본 인수값을 지정하면 됩니다. 함수를 선언할 때 원하는 매개 변수 뒤에 대입 연산자 (`=`)와 기본값을 입력하여 기본 인수값을 지정합니다.
 
-Note that the default argument value should be a constant. More precisely, the default argument value should be immutable - this is explained in detail in later chapters. For now, just remember this.
+이 때, 기본 인수값은 반드시 상수이어야 합니다. 좀 더 정확히 말하자면, 불변값이어야 합니다. 불변값에 대해서는 뒤 챕터에서 다룰 것입니다. 일단 지금은, 그래야 한다는 것만 기억해 두기 바랍니다.
 
-Example (save as `function_default.py`):
+예제 (function_default.py 로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/function_default.py" %}</code></pre>
+```python
+def say(message, times=1):
+    print(message * times)
 
-Output:
+say('Hello')
+say('World', 5)
+```
 
-<pre><code>{% include "./programs/function_default.txt" %}</code></pre>
+실행 결과:
 
-**How It Works**
+```
+$ python function_default.py
+Hello
+WorldWorldWorldWorldWorld
+```
 
-The function named `say` is used to print a string as many times as specified. If we don't supply a value, then by default, the string is printed just once. We achieve this by specifying a default argument value of `1` to the parameter `times`.
+**동작 원리**
 
-In the first usage of `say`, we supply only the string and it prints the string once. In the second usage of `say`, we supply both the string and an argument `5` stating that we want to *say* the string message 5 times.
+함수 `say`는 지정된 숫자 만큼 문자열을 반복하여 출력하는 합수입니다. 숫자를 지정하지 않으면, 기본값이 적용되어, 문자열이 한 번 출력됩니다. 이 결과는 매개 변수 `times`의 기본 인수값을 `1`로 지정해 줌으로써 얻어집니다.
 
-> *CAUTION*
-> 
-> Only those parameters which are at the end of the parameter list can be given default argument
-> values i.e. you cannot have a parameter with a default argument value preceding a parameter without
-> a default argument value in the function's parameter list.
-> 
-> This is because the values are assigned to the parameters by position. For example,`def func(a,
-> b=5)` is valid, but `def func(a=5, b)` is *not valid*.
+프로그램에서 처음 `say`를 호출할 때에는 함수에 문자열만 넘겨 주어 한번 출력하게 합니다. 두 번째 호출에서는 문자열과 인수 `5`를 넘겨 주어 함수가 문자열을 5번 반복하여 **말(say)**하게 합니다.
+
+> *주의*
+>
+> 매개 변수 목록에서 마지막에 있는 매개 변수들에만 기본 인수값을 지정해 줄 수 있습니다. 즉, 기본 인수값을 지정하지 않은 매개 변수의 앞에 위치한 매개 변수에만 기본 인수값을 지정할 수 없습니다.
+>
+> 이것은 함수 를 호출할 때 매개 변수의 위치에 맞춰서 값이 지정되기 때문입니다. 예를 들어, `def func(a, b=5)`는 옳은 함수 정의이지만 `def func(a=5, b)`는 옳지 않습니다.
 
 ## Keyword Arguments
 
