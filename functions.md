@@ -147,7 +147,7 @@ Value of x is 2
 
 하나의 `global`문으로 여러 개의 전역 변수를 동시에 지정해 줄 수도 있습니다. `global x, y, z`와 같이 하면 됩니다.
 
-## 기본 인수값 {#default-arguments}
+## 기본 인수 {#default-arguments}
 
 어떤 특별한 경우, 함수를 호출할 때 인수를 **선택적으로** 넘겨주게 하여 사용자가 값을 넘겨주지 않으면 자동으로 기본값을 사용하도록 하는 것이 편할 때가 있습니다. 이런 경우, 기본 인수값을 지정하면 됩니다. 함수를 선언할 때 원하는 매개 변수 뒤에 대입 연산자 (`=`)와 기본값을 입력하여 기본 인수값을 지정합니다.
 
@@ -183,29 +183,41 @@ WorldWorldWorldWorldWorld
 >
 > 이것은 함수 를 호출할 때 매개 변수의 위치에 맞춰서 값이 지정되기 때문입니다. 예를 들어, `def func(a, b=5)`는 옳은 함수 정의이지만 `def func(a=5, b)`는 옳지 않습니다.
 
-## Keyword Arguments
+## 키워드 인수
 
-If you have some functions with many parameters and you want to specify only some of them, then you can give values for such parameters by naming them - this is called *keyword arguments* - we use the name (keyword) instead of the position (which we have been using all along) to specify the arguments to the function.
+여러 개의 매개 변수를 가지고 있는 함수를 호출할 때, 그 중 몇 개만 인수를 넘겨주고 싶을 때가 있습니다. 이때 매개 변수의 이름을 지정하여 직접 값을 넘겨줄 수 있는데 이것을 **키워드 인수라** 부릅니다. 함수 선언시 지정된 매개 변수의 순서대로 값을 넘겨주는 것 대신, 매개 변수의 이름(키워드)을 사용하여 각각의 매개 변수에 인수를 넘겨 주도록 지정해 줍니다.
 
-There are two advantages - one, using the function is easier since we do not need to worry about the order of the arguments. Two, we can give values to only those parameters to which we want to, provided that the other parameters have default argument values.
+키워드 인수를 사용하는 데 두 가지 장점이 있습니다. 첫째로, 인수의 순서를 신경쓰지 않고도 함수를 쉽게 호출할 수 있는 점입니다. 둘째로는, 특정한 매개 변수에만 값을 넘기도록 하여 나머지는 자동으로 기본 인수값으로 채워지게 할 수 있습니다.
 
-Example (save as `function_keyword.py`):
+예제 (`function_keyword.py`로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/function_keyword.py" %}</code></pre>
+```python
+def func(a, b=5, c=10):
+    print('a is', a, 'and b is', b, 'and c is', c)
 
-Output:
+func(3, 7)
+func(25, c=24)
+func(c=50, a=100)
+```
 
-<pre><code>{% include "./programs/function_keyword.txt" %}</code></pre>
+실행 결과:
 
-**How It Works**
+```
+$ python function_keyword.py
+a is 3 and b is 7 and c is 10
+a is 25 and b is 5 and c is 24
+a is 100 and b is 5 and c is 50
+```
 
-The function named `func` has one parameter without a default argument value, followed by two parameters with default argument values.
+**동작 원리**
 
-In the first usage, `func(3, 7)`, the parameter `a` gets the value `3`, the parameter `b` gets the value `7` and `c` gets the default value of `10`.
+위의 `func`라 이름 지어진 함수는 기본 인수값이 지정되지 않은 한 개의 매개 변수와, 기본 인수값이 지정된 두 개의 매개 변수, 총 세 개의 매개 변수를 가지고 있습니다.
 
-In the second usage `func(25, c=24)`, the variable `a` gets the value of 25 due to the position of the argument. Then, the parameter `c` gets the value of `24` due to naming i.e. keyword arguments. The variable `b` gets the default value of `5`.
+첫 번째 호출 `func(3, 7)`에서, 매개 변수 `a`는 값 `3`, 매개 변수 `b`는 `7`을 넘겨 받으며, `c`에는 기본 인수값 `10`이 주어집니다.
 
-In the third usage `func(c=50, a=100)`, we use keyword arguments for all specified values. Notice that we are specifying the value for parameter `c` before that for `a` even though `a` is defined before `c` in the function definition.
+두 번째 호출 `func(25, c=24)`에서는, 첫 번째 인수인 `25`가 변수 `a`에 넘겨집니다. 그리고 매개 변수 `c`는 키워드 인수를 통해 값 `24`가 지정되며, 변수 `b`에는 기본값 `5`가 주어집니다.
+
+세 번째 호출 `func(c=50, a=100)`에서는, 모든 값을 지정하는 데 키워드 인수가 사용됩니다. 함수 정의에는 `a`다음에 `c`가 정의되어 있지만, 키워드 인수를 사용하면 그 순서에 상관없이 `c`를 먼저 지정하고 `a`를 나중에 지정할 수도 있다는 점을 기억하세요.
 
 ## VarArgs parameters
 
