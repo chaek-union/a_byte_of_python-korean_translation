@@ -264,8 +264,6 @@ None
 
 ## `return`문 {#return-statement}
 
-The `return` statement is used to *return* from a function i.e. break out of the function. We can optionally *return a value* from the function as well.
-
 `return`문은 함수로부터 되돌아(return) 나올 때, 즉 함수를 빠져 나올 때 사용됩니다. 이 때 return 값 처럼 값을 지정해 주면, 함수가 종료될 때 그 값을 반환하도록 할 수 있습니다.
 
 예제 (`function_return.py`로 저장하세요):
