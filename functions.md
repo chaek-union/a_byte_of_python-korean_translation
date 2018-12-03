@@ -219,23 +219,48 @@ a is 100 and b is 5 and c is 50
 
 세 번째 호출 `func(c=50, a=100)`에서는, 모든 값을 지정하는 데 키워드 인수가 사용됩니다. 함수 정의에는 `a`다음에 `c`가 정의되어 있지만, 키워드 인수를 사용하면 그 순서에 상관없이 `c`를 먼저 지정하고 `a`를 나중에 지정할 수도 있다는 점을 기억하세요.
 
-## VarArgs parameters
+## VarArgs 매개 변수
 
-Sometimes you might want to define a function that can take _any_ number of parameters, i.e. **var**iable number of **arg**uments, this can be achieved by using the stars (save as `function_varargs.py`):
+가끔 함수에 임의의 개수의 매개 변수를 지정해주고 싶을 때가 있습니다. 이때 VarArgs 매개 변수를 사용합니다. 아래 예제와 같이 별 기호를 사용하여 임의의(Variable) 개수의 인수(Arguments) 를 표현합니다.
 
-<pre><code class="lang-python">{% include "./programs/function_varargs.py" %}</code></pre>
+예제 (`function_varargs.py`로 저장하세요):
 
-Output:
+```python
+def total(a=5, *numbers, **phonebook):
+    print('a', a)
+    
+    #iterate through all the items in tuple
+    for single_item in numbers:
+        print('single_item', single_item)
+        
+    #iterate through all the items in dictionary    
+    for first_part, second_part in phonebook.items():
+        print(first_part,second_part)
 
-<pre><code>{% include "./programs/function_varargs.txt" %}</code></pre>
+print(total(10,1,2,3,Jack=1123,John=2231,Inge=1560))
+```
 
-**How It Works**
+실행 결과:
 
-When we declare a starred parameter such as `*param`, then all the positional arguments from that point till the end are collected as a tuple called 'param'.
+```
+$ python function_varargs.py
+a 10
+single_item 1
+single_item 2
+single_item 3
+Inge 1560
+John 2231
+Jack 1123
+None
+```
 
-Similarly, when we declare a double-starred parameter such as `**param`, then all the keyword arguments from that point till the end are collected as a dictionary called 'param'.
+**동작 원리**
 
-We will explore tuples and dictionaries in a [later chapter](./data_structures.md#data-structures).
+앞에 별 기호가 달린 매개 변수, 예를 들어 `*param`과 같이 매개 변수를 지정해 주면 함수에 넘겨진 모든 위치 기반 인수들이 'param' 이라는 이름의 튜플로 묶여서 넘어옵니다.
+
+또 이와 비슷하게 앞에 별 두 개가 달린 매개 변수, 예를 들어 `**param`과 같이 매개 변수를 지정해 주면 함수에 넘겨진 모든 키워드 인수들이 'param' 이라는 이름의 사전으로 묶여서 넘어옵니다.
+
+튜플과 사전에 대해서는 [다음 장](./data_structures.md#data-structures)에서 좀 더 자세히 다뤄보도록 하곘습니다.
 
 ## The `return` statement {#return-statement}
 
