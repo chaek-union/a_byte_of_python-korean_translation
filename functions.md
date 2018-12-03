@@ -262,34 +262,49 @@ None
 
 튜플과 사전에 대해서는 [다음 장](./data_structures.md#data-structures)에서 좀 더 자세히 다뤄보도록 하곘습니다.
 
-## The `return` statement {#return-statement}
+## `return`문 {#return-statement}
 
 The `return` statement is used to *return* from a function i.e. break out of the function. We can optionally *return a value* from the function as well.
 
-Example (save as `function_return.py`):
+`return`문은 함수로부터 되돌아(return) 나올 때, 즉 함수를 빠져 나올 때 사용됩니다. 이 때 return 값 처럼 값을 지정해 주면, 함수가 종료될 때 그 값을 반환하도록 할 수 있습니다.
 
-<pre><code class="lang-python">{% include "./programs/function_return.py" %}</code></pre>
+예제 (`function_return.py`로 저장하세요):
 
-Output:
+```python
+def maximum(x, y):
+    if x > y:
+        return x
+    elif x == y:
+        return 'The numbers are equal'
+    else:
+        return y
 
-<pre><code>{% include "./programs/function_return.txt" %}</code></pre>
+print(maximum(2, 3))
+```
 
-**How It Works**
+실행 결과:
 
-The `maximum` function returns the maximum of the parameters, in this case the numbers supplied to the function. It uses a simple `if..else` statement to find the greater value and then *returns* that value.
+```
+$ python function_return.py
+3
+```
 
-Note that a `return` statement without a value is equivalent to `return None`. `None` is a special type in Python that represents nothingness. For example, it is used to indicate that a variable has no value if it has a value of `None`.
+**동작 원리**
 
-Every function implicitly contains a `return None` statement at the end unless you have written your own `return` statement. You can see this by running `print(some_function())` where the function `some_function` does not use the `return` statement such as:
+여기에서 사용된 `maximum` 함수는 매개 변수들 중 최대 값을 반환합니다. 위 경우에는 함수에 넘겨진 숫자들 중 최대값을 반환합니다. 간단한 `if..else` 구문을 통해 더 큰 값을 찾고, 최종 값을 **반환(return)** 합니다.
+
+`return`문 뒤에 아무 값도 지정하지 않는 경우, `return None`을 실행하는 것과 같습니다. `None`이란 파이썬에서 사용되는 특별한 형식으로 아무것도 없음을 의미합니다. 예를 들면, 어떤 변수의 값이 `None`이라는 것은 변수에 할당된 값이 없다는 것을 의미합니다.
+
+여러분이 `return`문을 함수에 지정하지 않으면, 함수는 끝날 때 자동으로 `return None` 구문을 암시적으로 호출합니다. 아래 예제에서 `return`문이 지정되지 않은 `some_function`이라는 함수를 선언하고 `print(some_function())`을 실행하여 그 결과를 확인해 보시기 바랍니다.
 
 ```python
 def some_function():
     pass
 ```
 
-The `pass` statement is used in Python to indicate an empty block of statements.
+`pass`문은 아무 기능이 없는 구문입니다. 이것은 빈 블록을 지정해 줄 때 사용됩니다.
 
-> TIP: There is a built-in function called `max` that already implements the 'find maximum' functionality, so use this built-in function whenever possible.
+> 팁: 사실 파이썬에는 '최대값을 찾는' 내장 함수 `max`가 이미 포함되어 있습니다. 따라서 가능하면 이 내장 함수를 사용하시기 바랍니다.
 
 ## DocStrings
 
