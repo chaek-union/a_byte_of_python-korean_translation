@@ -308,27 +308,49 @@ def some_function():
 
 ## DocStrings
 
-Python has a nifty feature called *documentation strings*, usually referred to by its shorter name *docstrings*. DocStrings are an important tool that you should make use of since it helps to document the program better and makes it easier to understand. Amazingly, we can even get the docstring back from, say a function, when the program is actually running!
+파이썬은 설명(Documentation) 문자열(String) 이라고 불리우는, 짧게 줄여서 **DocStrings**라 불리우는 편리한 기능을 가지고 있습니다. DocStrings는 여러분이 만든 프로그램을 알아보기 쉽게 해 주고, 또 후에 프로그램에 대한 설명서를 작성할 때 유용하게 사용될 수 있는 중요한 도구입니다. 아래 예제와 같이, DocString은 프로그램이 실행중일 때도 읽어올 수 있습니다.
 
-Example (save as `function_docstring.py`):
+예제 (`function_docstring.py`로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/function_docstring.py" %}</code></pre>
+```python
+def print_max(x, y):
+    '''Prints the maximum of two numbers.
 
-Output:
+    The two values must be integers.'''
+    # convert to integers, if possible
+    x = int(x)
+    y = int(y)
 
-<pre><code>{% include "./programs/function_docstring.txt" %}</code></pre>
+    if x > y:
+        print(x, 'is maximum')
+    else:
+        print(y, 'is maximum')
 
-**How It Works**
+print_max(3, 5)
+print(print_max.__doc__)
+```
 
-A string on the first logical line of a function is the *docstring* for that function. Note that DocStrings also apply to [modules](./modules.md#modules) and [classes](./oop.md#oop) which we will learn about in the respective chapters.
+실행 결과:
+```
+$ python function_docstring.py
+5 is maximum
+Prints the maximum of two numbers.
 
-The convention followed for a docstring is a multi-line string where the first line starts with a capital letter and ends with a dot. Then the second line is blank followed by any detailed explanation starting from the third line. You are *strongly advised* to follow this convention for all your docstrings for all your non-trivial functions.
+    The two values must be integers.
+```
 
-We can access the docstring of the `print_max` function using the `__doc__` (notice the *double underscores*) attribute (name belonging to) of the function. Just remember that Python treats *everything* as an object and this includes functions. We'll learn more about objects in the chapter on [classes](./oop.md#oop).
 
-If you have used `help()` in Python, then you have already seen the usage of docstrings! What it does is just fetch the `__doc__` attribute of that function and displays it in a neat manner for you. You can try it out on the function above - just include `help(print_max)` in your program. Remember to press the `q` key to exit `help`.
+**동작 원리**
 
-Automated tools can retrieve the documentation from your program in this manner. Therefore, I *strongly recommend* that you use docstrings for any non-trivial function that you write. The `pydoc` command that comes with your Python distribution works similarly to `help()` using docstrings.
+함수에 포함된 첫 논리적 명령행에 적어둔 문자열은 함수의 **DocString**이라고 불리우는 것입니다. 여기에서 설명하는 DocString은 [모듈](./modules.md#modules)과 [클래스](./oop.md#oop)에도 똑같이 적용됩니다. 각각에 대해서는 각 챕터에서 좀 더 자세히 알아보도록 하겠습니다.
+
+DocString은 일반적으로 첫째줄의 첫문자는 대문자로, 마지막 문자는 마침표로 끝나도록 작성합니다. 그리고 두번째 줄은 비워 두고, 세번째 줄부터는 이것이 어떤 기능을 하는지에 대해 상세하게 작성합니다. 저는 앞으로 여러분이 함수의 DocString를 작성할 때 이 규칙을 따르기를 **강력히 권합니다**.
+
+`print_max` 함수의 DocString은 함수의 `__doc__` 속성을 통해 접근할 수 있습니다 \(**밑줄이 두 개** 임을 다시한번 확인하세요\). doc 은 함수 객체가 갖고 있는 기본 속성입니다. 파이썬에서는 함수를 포함한 모든 것이 객체로 다루어진다는 점을 기억하세요. 이에 대해서는 [클래스](./oop.md#oop)에서 좀 더 자세히 알아볼 것입니다.
+
+파이썬에서 `help()`를 이용해 보셨다면, 여러분은 이미 DocString을 본 적이 있는 것입니다! `help()`가 하는 일은 주어진 대상의 `__doc__` 속성을 가져와 화면에 보여주는 것 뿐입니다. 따라서 위에서 만든 함수에 대해서도 마찬가지로 동작합니다. 여러분의 프로그램에 `help(print_max)`라고 한 줄 추가해 보시기 바랍니다. `help`창을 닫으려면 `q`키를 누르세요.
+
+이를 이용하여 여러분의 프로그램에 대한 명세서를 자동으로 만들어주는 프로그램들이 있습니다. 따라서, 저는 여러분이 어떤 함수를 작성하시던지 DocString을 작성할 것을 **강력히 권합니다**. 파이썬과 함께 설치되는 `pydoc` 또한 `help()`와 비슷한 방법으로 DocString을 이용하여 동작합니다.
 
 ## Summary
 
