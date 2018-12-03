@@ -352,8 +352,8 @@ DocString은 일반적으로 첫째줄의 첫문자는 대문자로, 마지막 �
 
 이를 이용하여 여러분의 프로그램에 대한 명세서를 자동으로 만들어주는 프로그램들이 있습니다. 따라서, 저는 여러분이 어떤 함수를 작성하시던지 DocString을 작성할 것을 **강력히 권합니다**. 파이썬과 함께 설치되는 `pydoc` 또한 `help()`와 비슷한 방법으로 DocString을 이용하여 동작합니다.
 
-## Summary
+## 요약
 
-We have seen so many aspects of functions but note that we still haven't covered all aspects of them. However, we have already covered most of what you'll use regarding Python functions on an everyday basis.
+지금까지 함수에 대해 많은 것들을 알아 보았습니다만, 사실 아직 모든 기능을 다 알아본 것은 아닙니다. 그러나, 실제적으로 사용되는 기능에 대해서는 거의 모든 것을 설명해 드렸기 때문에 아마 앞으로 매일매일 프로그램을 작성할 때는 별 무리가 없을 것입니다.
 
-Next, we will see how to use as well as create Python modules.
+다음으로는, 모듈을 작성하고 사용하는 방법에 대해 알아보도록 하겠습니다.
