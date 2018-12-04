@@ -1,42 +1,63 @@
-# Modules
+# 모듈
 
-You have seen how you can reuse code in your program by defining functions once. What if you wanted to reuse a number of functions in other programs that you write? As you might have guessed, the answer is modules.
+앞에서 함수를 통해 여러분의 프로그램 안에서 코드를 재사용하는 방법에 대해서 배워 보았습니다. 그러면 여러 함수들을 한꺼번에 불러들여 재사용하는 방법은 없을까요? 네, 이럴 때 모듈을 이용합니다.
 
-There are various methods of writing modules, but the simplest way is to create a file with a `.py` extension that contains functions and variables.
+모듈을 작성하는 데에는 여러가지 방법이 있습니다만, 가장 간단한 방법은 `.py` 확장자를 가진 파일을 하나 만들고 그 안에 함수들과 변수들을 정의해 두는 것입니다.
 
-Another method is to write the modules in the native language in which the Python interpreter itself was written. For example, you can write modules in the [C programming language](http://docs.python.org/3/extending/) and when compiled, they can be used from your Python code when using the standard Python interpreter.
+모듈을 작성하는 또 한 가지 방법은 여러분이 현재 사용중인 파이썬 인터프리터를 만드는데 사용되는 프로그래밍 언어로 모듈을 작성하는 것입니다. 예를 들어, 표준 파이썬 인터프리터를 사용 중인 경우 [C 언어](http://docs.python.org/3/extending/)를 이용하여 모듈을 작성하고 컴파일하면 파이썬에서 이것을 불러와 사용할 수 있습니다.
 
-A module can be *imported* by another program to make use of its functionality. This is how we can use the Python standard library as well. First, we will see how to use the standard library modules.
+다른 프로그램에서 **import** 명령을 통해 모듈을 불러와 사용할 수 있습니다. 파이썬 표준 라이브러리 또한 동일한 방법을 통해 이용이 가능합니다. 일단, 표준 라이브러리를 불러와 사용하는 방법을 알아보도록 하겠습니다.
 
-Example (save as `module_using_sys.py`):
+예제 (`module_using_sys.py`로 저장하세요):
 
-<pre><code class="lang-python">{% include "./programs/module_using_sys.py" %}</code></pre>
+```python
+import sys
 
-Output:
+print('The command line arguments are:')
+for i in sys.argv:
+    print(i)
 
-<pre><code>{% include "./programs/module_using_sys.txt" %}</code></pre>
+print('\n\nThe PYTHONPATH is', sys.path, '\n')
+```
 
-**How It Works**
+실행 결과:
 
-First, we *import* the `sys` module using the `import` statement. Basically, this translates to us telling Python that we want to use this module. The `sys` module contains functionality related to the Python interpreter and its environment i.e. the **sys**tem.
+```
+$ python module_using_sys.py we are arguments
+The command line arguments are:
+module_using_sys.py
+we
+are
+arguments
 
-When Python executes the `import sys` statement, it looks for the `sys` module. In this case, it is one of the built-in modules, and hence Python knows where to find it.
 
-If it was not a compiled module i.e. a module written in Python, then the Python interpreter will search for it in the directories listed in its `sys.path` variable. If the module is found, then the statements in the body of that module are run and the module is made *available* for you to use. Note that the initialization is done only the *first* time that we import a module.
+The PYTHONPATH is ['/tmp/py',
+# many entries here, not shown here
+'/Library/Python/2.7/site-packages',
+'/usr/local/lib/python2.7/site-packages']
+```
 
-The `argv` variable in the `sys` module is accessed using the dotted notation i.e. `sys.argv`. It clearly indicates that this name is part of the `sys` module. Another advantage of this approach is that the name does not clash with any `argv` variable used in your program.
+**동작 원리**
 
-The `sys.argv` variable is a *list* of strings (lists are explained in detail in a [later chapter](./data_structures.md#data-structures)). Specifically, the `sys.argv` contains the list of *command line arguments* i.e. the arguments passed to your program using the command line.
+먼저, 표준 라이브러리 중 하나인 `sys` 모듈을 `import`문을 통해 불러왔습니다. 이것은 단순히 파이썬에게 이 모듈을 앞으로 사용할 것이라고 알려주는 과정이라고 생각하시면 편합니다. 여기서 사용된 `sys` 모듈은 파이썬 인터프리터와 인터프리터가 실행중인 환경, 즉 **시스템**(system)에 관련된 기능들이 담겨 있습니다.
 
-If you are using an IDE to write and run these programs, look for a way to specify command line arguments to the program in the menus.
+파이썬이 `import sys`문을 실행하는 시점에서, 파이썬은 `sys` 모듈을 찾습니다. 이 경우에는 내장 모듈을 불러오는 것이므로, 파이썬이 이미 어디서 이것을 불러와야 하는지 알고 있습니다.
 
-Here, when we execute `python module_using_sys.py we are arguments`, we run the module `module_using_sys.py` with the `python` command and the other things that follow are arguments passed to the program. Python stores the command line arguments in the `sys.argv` variable for us to use.
+만약 그렇지 않은 경우, 예를 들어 파이썬으로 여러분이 직접 작성한 모듈인 경우 파이썬 인터프리터는 `sys.path` 변수 에 정의된 디렉토리들에 해당 모듈이 있는지 검색합니다. 그리고 나서 모듈을 찾아내면, 그 모듈 내부에 적혀있는 명령들이 읽어들여지게 되며 그 다음부터 모듈이 **사용가능하게** 됩니다. 이러한 초기화 과정은 **첫번째로** 모듈을 불러올 때만 이루어진다는 것을 기억하세요.
 
-Remember, the name of the script running is always the first element in the `sys.argv` list. So, in this case we will have `'module_using_sys.py'` as `sys.argv[0]`, `'we'` as `sys.argv[1]`, `'are'` as `sys.argv[2]` and `'arguments'` as `sys.argv[3]`. Notice that Python starts counting from 0 and not 1.
+`sys` 모듈의 `argv` 변수를 불러올 때, 마침표를 이용하여 `sys.argv`와 같이 접근합니다. 이와 같이 마침표를 이용함으로써 뒤에 온 이름이 `sys` 모듈에 존재한다는 것을 명시적으로 알려 주고, 또한 여러분의 프로그램에 사용될지 모를 `argv`라는 이름을 가진 다른 변수와 충돌이 일어나지 않도록 합니다.
 
-The `sys.path` contains the list of directory names where modules are imported from. Observe that the first string in `sys.path` is empty - this empty string indicates that the current directory is also part of the `sys.path` which is same as the `PYTHONPATH` environment variable. This means that you can directly import modules located in the current directory. Otherwise, you will have to place your module in one of the directories listed in `sys.path`.
+`sys.argv` 변수는 문자열의 **리스트** 입니다 \(리스트에 대해서는 [다음 장](./data_structures.md#data-structures))에서 좀 더 자세히 다룰 것입니다\). 좀 더 구체적으로 `sys.argv`가 담고 있는 것은 *명령줄 인수*들의 리스트인데, 이것은 명령줄로부터 프로그램을 실행시킬 때 함께 넘어온 인수들을 담고 있는 것입니다.
 
-Note that the current directory is the directory from which the program is launched. Run `import os; print(os.getcwd())` to find out the current directory of your program.
+여러분이 프로그램을 작성하고 실행할 때 IDE(Integrated Development Environment, 통합 개발 환경를 이용하시는 경우, IDE 상에서 프로그램을 실행할 때 명령줄 인수를 지정하는 방법에 대해 알아보시기 바랍니다.
+
+여기서는 명령줄에서 직접 `python module_using_sys.py we are arguments` 명령을 통해 실행하였습니다. 이것은 `python` 명령을 통해 `module_using_sys.py` 모듈을 실행시키고 함께 적어준 명령줄 인수들을 실행될 프로그램에 넘겨준 것입니다. 그러면 파이썬은 `sys.argv` 변수에 이것을 저장해 주며 프로그램에서 사용할 수 있도록 합니다.
+
+이 때, 여러분이 실행한 스크립트의 이름이 `sys.argv` 리스트의 첫번째 항목이 됨을 기억하세요. 즉, 이 경우 `'module_using_sys.py'`가 `sys.argv[0]`에 해당하며, `'we'`는 `sys.argv[1]`에, `'are'`는 `sys.argv[2]`에, `'arguments'`는 `sys.argv[3]`에 해당합니다. 파이선은 숫자를 0부터 센다는 점을 기억하세요 (1이 아닙니다!).
+
+`sys.path` 변수에는 모듈을 불러올 때 찾게 되는 디렉토리들의 리스트가 담겨 있습니다. `sys.path` 변수의 첫 번째 항목이 공백 문자열임을 확인하세요. 공백 문자열은 현재 디렉토리를 의미하는데, 따라서 이것은 현재 디렉토리 또한 `sys.path`의 일부임을 의미하며 이것은 `PYTHONPATH` 환경변수의 경우와도 같습니다. 즉, 여러분은 현재 디렉토리에 들어 있는 파이썬 모듈을 불러와 사용할 수 있는 것입니다. 그렇지 않은 경우, `sys.path`에 지정된 디렉토리들 중 하나에 해당 모듈이 들어 있어야 합니다.
+
+이때 현재 디렉토리란 프로그램을 실행할 때 위치하고 있는 디렉토리를 말합니다. `import os; print(os.getcwd())`를 실행하여 여러분의 프로그램에서 현재 디렉토리가 어디인지 확인할 수 있습니다.
 
 ## Byte-compiled .pyc files {#pyc}
 
