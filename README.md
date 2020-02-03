@@ -6,29 +6,15 @@
 
 번역에 문제가 있거나 의견 주시려면 pjb7687@gmail.com, jdssem@gmail.com 으로 메일 주시기 바랍니다.
 
-* HTML 버전 읽기: [http://byteofpython-korean.sourceforge.net/byte\_of\_python.html](http://byteofpython-korean.sourceforge.net/byte_of_python.html)
-* PDF 버전 읽기: [http://byteofpython-korean.sourceforge.net/byte\_of\_python.pdf](http://byteofpython-korean.sourceforge.net/byte_of_python.pdf)
-  * 참고: PDF 버전에 사용된 본문용 서체는 [한국출판인회의](http://www.kopus.org/)에서 공개한
-
-    `KOPUB 돋움/바탕` 을 수정하여 사용하였으며, 고정폭 서체로는
-
-    [`나눔고딕코딩글꼴`](http://dev.naver.com/projects/nanumfont/)을 사용하였습니다.
+* HTML 버전 읽기: [https://byte-of-python-korean.gitbook.io/a-byte-of-python/](https://byte-of-python-korean.gitbook.io/a-byte-of-python/)
 
 Original author of this book is Swaroop C H. The website of original book is [http://swaroopch.com/notes/python/](http://swaroopch.com/notes/python/).
 
 Jeongbin Park translated the earlier version of this book in Korean. Jeongbin Park and Jaedong Kim is currently updating the contents for Python 3.
 
-If you find any error or want to give some comments, please notify via pjb7687@gmail.com.
+If you find any error or want to give some comments, please notify via pjb7687@gmail.com or jdssem@gmail.com.
 
-* Read HTML Version: [http://byteofpython-korean.sourceforge.net/byte\_of\_python.html](http://byteofpython-korean.sourceforge.net/byte_of_python.html)
-* Read PDF Version: [http://byteofpython-korean.sourceforge.net/byte\_of\_python.pdf](http://byteofpython-korean.sourceforge.net/byte_of_python.pdf)
-  * Notice: The \(sans-\)serif font used in PDF version of the book is [`KOPUB Dotum/Batang`](http://www.kopus.org/),
-
-    modified to support several latin characters. Also 
-
-    [`Nanum Gothic Coding Font`](http://dev.naver.com/projects/nanumfont/) is used for monospace texts
-
-    \(especially for Python codes\).
+* Read HTML Version: [https://byte-of-python-korean.gitbook.io/a-byte-of-python/](https://byte-of-python-korean.gitbook.io/a-byte-of-python/)
 
 ## A Byte of Python
 
