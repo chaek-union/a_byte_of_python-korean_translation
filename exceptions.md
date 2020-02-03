@@ -1,4 +1,4 @@
-# Exceptions
+# 예외 처리
 
 Exceptions occur when _exceptional_ situations occur in your program. For example, what if you are going to read a file and the file does not exist? Or what if you accidentally deleted it when the program was running? Such situations are handled using **exceptions**.
 
@@ -21,7 +21,7 @@ Observe that a `NameError` is raised and also the location where the error was d
 
 ## Exceptions
 
-We will **try** to read input from the user.  Enter the first line below and hit the `Enter` key.  When your computer prompts you for input, instead press `[ctrl-d]` on a Mac or `[ctrl-z]` with Windows and see what happens.  (If you're using Windows and neither option works, you can try `[ctrl-c]` in the Command Prompt to generate a KeyboardInterrupt error instead).
+We will **try** to read input from the user. Enter the first line below and hit the `Enter` key. When your computer prompts you for input, instead press `[ctrl-d]` on a Mac or `[ctrl-z]` with Windows and see what happens. \(If you're using Windows and neither option works, you can try `[ctrl-c]` in the Command Prompt to generate a KeyboardInterrupt error instead\).
 
 ```python
 >>> s = input('Enter something --> ')
@@ -30,19 +30,23 @@ Enter something --> Traceback (most recent call last):
 EOFError
 ```
 
-Python raises an error called `EOFError` which basically means it found an *end of file* symbol (which is represented by `ctrl-d`) when it did not expect to see it.
+Python raises an error called `EOFError` which basically means it found an _end of file_ symbol \(which is represented by `ctrl-d`\) when it did not expect to see it.
 
 ## Handling Exceptions
 
-We can handle exceptions using the `try..except` statement.  We basically put our usual statements within the try-block and put all our error handlers in the except-block.
+We can handle exceptions using the `try..except` statement. We basically put our usual statements within the try-block and put all our error handlers in the except-block.
 
-Example (save as `exceptions_handle.py`):
+Example \(save as `exceptions_handle.py`\):
 
-<pre><code class="lang-python">{% include "./programs/exceptions_handle.py" %}</code></pre>
+```text
+{% include "./programs/exceptions_handle.py" %}
+```
 
 Output:
 
-<pre><code>{% include "./programs/exceptions_handle.txt" %}</code></pre>
+```text
+{% include "./programs/exceptions_handle.txt" %}
+```
 
 **How It Works**
 
@@ -62,13 +66,17 @@ You can _raise_ exceptions using the `raise` statement by providing the name of 
 
 The error or exception that you can raise should be a class which directly or indirectly must be a derived class of the `Exception` class.
 
-Example (save as `exceptions_raise.py`):
+Example \(save as `exceptions_raise.py`\):
 
-<pre><code class="lang-python">{% include "./programs/exceptions_raise.py" %}</code></pre>
+```text
+{% include "./programs/exceptions_raise.py" %}
+```
 
 Output:
 
-<pre><code>{% include "./programs/exceptions_raise.txt" %}</code></pre>
+```text
+{% include "./programs/exceptions_raise.txt" %}
+```
 
 **How It Works**
 
@@ -76,35 +84,41 @@ Here, we are creating our own exception type. This new exception type is called 
 
 In the `except` clause, we mention the class of error which will be stored `as` the variable name to hold the corresponding error/exception object. This is analogous to parameters and arguments in a function call. Within this particular `except` clause, we use the `length` and `atleast` fields of the exception object to print an appropriate message to the user.
 
-## Try ... Finally {#try-finally}
+## Try ... Finally <a id="try-finally"></a>
 
 Suppose you are reading a file in your program. How do you ensure that the file object is closed properly whether or not an exception was raised? This can be done using the `finally` block.
 
 Save this program as `exceptions_finally.py`:
 
-<pre><code class="lang-python">{% include "./programs/exceptions_finally.py" %}</code></pre>
+```text
+{% include "./programs/exceptions_finally.py" %}
+```
 
 Output:
 
-<pre><code>{% include "./programs/exceptions_finally.txt" %}</code></pre>
+```text
+{% include "./programs/exceptions_finally.txt" %}
+```
 
 **How It Works**
 
-We do the usual file-reading stuff, but we have arbitrarily introduced sleeping for 2 seconds after printing each line using the `time.sleep` function so that the program runs slowly (Python is very fast by nature). When the program is still running, press `ctrl + c` to interrupt/cancel the program.
+We do the usual file-reading stuff, but we have arbitrarily introduced sleeping for 2 seconds after printing each line using the `time.sleep` function so that the program runs slowly \(Python is very fast by nature\). When the program is still running, press `ctrl + c` to interrupt/cancel the program.
 
 Observe that the `KeyboardInterrupt` exception is thrown and the program quits. However, before the program exits, the finally clause is executed and the file object is always closed.
 
-Notice that a variable assigned a value of 0 or `None` or a variable which is an empty sequence or collection is considered `False` by Python.  This is why we can use `if: f` in the code above.
+Notice that a variable assigned a value of 0 or `None` or a variable which is an empty sequence or collection is considered `False` by Python. This is why we can use `if: f` in the code above.
 
 Also note that we use `sys.stdout.flush()` after `print` so that it prints to the screen immediately.
 
-## The with statement {#with}
+## The with statement <a id="with"></a>
 
 Acquiring a resource in the `try` block and subsequently releasing the resource in the `finally` block is a common pattern. Hence, there is also a `with` statement that enables this to be done in a clean manner:
 
 Save as `exceptions_using_with.py`:
 
-<pre><code class="lang-python">{% include "./programs/exceptions_using_with.py" %}</code></pre>
+```text
+{% include "./programs/exceptions_using_with.py" %}
+```
 
 **How It Works**
 
@@ -123,3 +137,4 @@ More discussion on this topic is beyond scope of this book, so please refer [PEP
 We have discussed the usage of the `try..except` and `try..finally` statements. We have seen how to create our own exception types and how to raise exceptions as well.
 
 Next, we will explore the Python Standard Library.
+
