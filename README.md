@@ -1,3 +1,9 @@
+# 번역 중단
+
+이 repo에 있는 내용은 번역이 중단된 과거의 번역 결과물들을 저장해 둔 것입니다. 마지막 수정일로부터 3년 이상 업데이트되지 않았기에 번역이 중단된 것으로 간주하여 번역 팀을 해체하기로 결정하였습니다.
+
+2022년 현재, 기존 공개되었던 과거 번역본 (https://sourceforge.net/projects/byteofpython-korean/) 을 기반으로 한 새로운 번역본이 main 브랜치에 공개되어 있습니다.
+
 # 책머리
 
 ## A Byte of Python 한국어 번역\(Korean Translation of A Byte of Python\)
