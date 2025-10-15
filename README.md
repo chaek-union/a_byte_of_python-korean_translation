@@ -8,7 +8,7 @@
 
 ## 한국어 번역
 
-2022년 11월 박정빈 (jeongbin.park@pusan.ac.kr) 이 파이썬 3에 맞도록 책의 내용을 새롭게 갱신하였습니다.
+2022년 11월 박정빈 (jeongbin.park@pusan.ac.kr) 이 파이썬 3에 맞도록 책의 내용을 새롭게 갱신하였습니다. 이 책의 소스코드는 https://github.com/chaek-union/a_byte_of_python-korean_translation 에서 확인하실 수 있습니다.
 
 이 책의 원 저자는 Swaroop C H 입니다. 책의 영어 원문은 http://www.swaroopch.com/notes/python/ 에서 확인하실 수 있습니다.
 
