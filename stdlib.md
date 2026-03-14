@@ -33,11 +33,11 @@ True
 
 `stdlib_logging.py` 로 저장하세요:
 
-{% include "./programs/stdlib_logging.py" %}
+<pre><code class="lang-python">{% include "./programs/stdlib_logging.py" %}</code></pre>
 
 실행 결과:
 
-{% include "./programs/stdlib_logging.txt" %}
+<pre><code>{% include "./programs/stdlib_logging.txt" %}</code></pre>
 
 이 예제에서는 'test.log' 파일의 내용을 읽기 위해 `cat` 명령을 활용합니다. 여러분의 명령행 환경에서 `cat` 명령을 사용할 수 없을 경우, 아무 텍스트 에디터에서나 `test.log` 파일을 열어서 내용을 확인해 보실 수 있습니다.
 
